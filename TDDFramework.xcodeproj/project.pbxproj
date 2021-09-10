@@ -10,6 +10,8 @@
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
 		F407B74226D845F40075E620 /* TDDFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B74126D845F40075E620 /* TDDFrameworkTests.swift */; };
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
+		F407B75E26D846E40075E620 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75D26D846E40075E620 /* Quotes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		F407B73C26D845F40075E620 /* TDDFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F407B74126D845F40075E620 /* TDDFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDFrameworkTests.swift; sourceTree = "<group>"; };
 		F407B74326D845F40075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncNetworkCallsTests.swift; sourceTree = "<group>"; };
+		F407B75D26D846E40075E620 /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		F407B73526D845F30075E620 /* TDDFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F407B75D26D846E40075E620 /* Quotes.swift */,
 				F407B73626D845F30075E620 /* TDDFramework.h */,
 				F407B73726D845F30075E620 /* Info.plist */,
 			);
@@ -81,9 +86,18 @@
 			isa = PBXGroup;
 			children = (
 				F407B74126D845F40075E620 /* TDDFrameworkTests.swift */,
+				F407B76326D847C20075E620 /* Asynchronous Tests */,
 				F407B74326D845F40075E620 /* Info.plist */,
 			);
 			path = TDDFrameworkTests;
+			sourceTree = "<group>";
+		};
+		F407B76326D847C20075E620 /* Asynchronous Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */,
+			);
+			path = "Asynchronous Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +161,7 @@
 				TargetAttributes = {
 					F407B73226D845F30075E620 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					F407B73B26D845F40075E620 = {
 						CreatedOnToolsVersion = 12.4;
@@ -194,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F407B75E26D846E40075E620 /* Quotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F407B74226D845F40075E620 /* TDDFrameworkTests.swift in Sources */,
+				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 		F407B74826D845F40075E620 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -356,6 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.andreskwan.TDDFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +382,7 @@
 		F407B74926D845F40075E620 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -386,6 +406,7 @@
 		F407B74B26D845F40075E620 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TDDFrameworkTests/Info.plist;
@@ -403,6 +424,7 @@
 		F407B74C26D845F40075E620 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = TDDFrameworkTests/Info.plist;
