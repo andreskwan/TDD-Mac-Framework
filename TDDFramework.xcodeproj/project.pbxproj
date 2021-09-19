@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
-		F407B74226D845F40075E620 /* TDDFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B74126D845F40075E620 /* TDDFrameworkTests.swift */; };
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
 		F407B75E26D846E40075E620 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75D26D846E40075E620 /* Quotes.swift */; };
+		F4BB6AA726F79D57006B2205 /* Plays.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AA626F79D57006B2205 /* Plays.swift */; };
+		F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */; };
+		F4BB6AAD26F7A9AF006B2205 /* PlaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +31,12 @@
 		F407B73626D845F30075E620 /* TDDFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDFramework.h; sourceTree = "<group>"; };
 		F407B73726D845F30075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F407B73C26D845F40075E620 /* TDDFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F407B74126D845F40075E620 /* TDDFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDFrameworkTests.swift; sourceTree = "<group>"; };
 		F407B74326D845F40075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncNetworkCallsTests.swift; sourceTree = "<group>"; };
 		F407B75D26D846E40075E620 /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		F4BB6AA626F79D57006B2205 /* Plays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plays.swift; sourceTree = "<group>"; };
+		F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysCostReportTests.swift; sourceTree = "<group>"; };
+		F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,8 @@
 		F407B73526D845F30075E620 /* TDDFramework */ = {
 			isa = PBXGroup;
 			children = (
-				F407B75D26D846E40075E620 /* Quotes.swift */,
+				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
+				F4BB6AA326F79CF2006B2205 /* To Test Asynchronously */,
 				F407B73626D845F30075E620 /* TDDFramework.h */,
 				F407B73726D845F30075E620 /* Info.plist */,
 			);
@@ -85,8 +90,8 @@
 		F407B74026D845F40075E620 /* TDDFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				F407B74126D845F40075E620 /* TDDFrameworkTests.swift */,
 				F407B76326D847C20075E620 /* Asynchronous Tests */,
+				F4BB6AA826F7A635006B2205 /* RefactoringBookTest */,
 				F407B74326D845F40075E620 /* Info.plist */,
 			);
 			path = TDDFrameworkTests;
@@ -98,6 +103,47 @@
 				F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */,
 			);
 			path = "Asynchronous Tests";
+			sourceTree = "<group>";
+		};
+		F4BB6AA326F79CF2006B2205 /* To Test Asynchronously */ = {
+			isa = PBXGroup;
+			children = (
+				F407B75D26D846E40075E620 /* Quotes.swift */,
+			);
+			path = "To Test Asynchronously";
+			sourceTree = "<group>";
+		};
+		F4BB6AA426F79D15006B2205 /* RefactoringBook */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB6AA526F79D25006B2205 /* Chapter1 */,
+			);
+			name = RefactoringBook;
+			sourceTree = "<group>";
+		};
+		F4BB6AA526F79D25006B2205 /* Chapter1 */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB6AA626F79D57006B2205 /* Plays.swift */,
+			);
+			path = Chapter1;
+			sourceTree = "<group>";
+		};
+		F4BB6AA826F7A635006B2205 /* RefactoringBookTest */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB6AA926F7A645006B2205 /* Chapter1 */,
+			);
+			path = RefactoringBookTest;
+			sourceTree = "<group>";
+		};
+		F4BB6AA926F7A645006B2205 /* Chapter1 */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */,
+				F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */,
+			);
+			path = Chapter1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F407B75E26D846E40075E620 /* Quotes.swift in Sources */,
+				F4BB6AA726F79D57006B2205 /* Plays.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F407B74226D845F40075E620 /* TDDFrameworkTests.swift in Sources */,
+				F4BB6AAD26F7A9AF006B2205 /* PlaysData.swift in Sources */,
+				F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */,
 				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
