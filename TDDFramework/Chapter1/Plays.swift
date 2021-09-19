@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: - Invoices
 struct Invoices: Codable {
-    let invoice: [Invoice]
+    let invoices: [Invoice]
 }
 
 // MARK: - Invoice
@@ -81,11 +81,12 @@ class Cost {
             }
             
             // print line for this order
-            result += "  \(String(describing: play?.name)): \n"
+            result += "  \(String(describing: play!.name)): $\(thisAmount/100) (\(performance.audience) seats)\n"
             totalAmount += thisAmount;
         }
-        result += "Amount owed is ${format(totalAmount/100)}\n";
-        result += "You earned ${volumeCredits} credits\n";
+//        result += "Amount owed is ${format(totalAmount/100)}\n";
+        result += "Amount owed is \(totalAmount/100)\n";
+        result += "You earned \(Int(volumeCredits)) credits\n";
         return result;
     }
 }

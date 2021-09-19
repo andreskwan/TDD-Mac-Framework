@@ -7,6 +7,8 @@
 
 import Foundation
 
+//JSON validator https://jsonlint.com
+
 public let playsData = """
 {
     "plays": [{
@@ -25,7 +27,7 @@ public let playsData = """
 }
 """.data(using: .utf8)!
 
-let invoices = """
+let invoicesData = """
 {
     "invoices": [{
         "customer": "BigCo",
