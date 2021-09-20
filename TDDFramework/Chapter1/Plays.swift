@@ -37,24 +37,24 @@ struct Play: Codable {
 class Cost {
     
     fileprivate func getAmountPerPerformance(_ play: Play?, _ performance: Performance) -> Int {
-        var thisAmount = 0
+        var result = 0
         switch play?.type {
         case "tragedy":
-            thisAmount = 40000
+            result = 40000
             if (performance.audience > 30) {
-                thisAmount += 1000 * (performance.audience - 30)
+                result += 1000 * (performance.audience - 30)
             }
             break
         case "comedy":
-            thisAmount = 30000
+            result = 30000
             if (performance.audience > 20) {
-                thisAmount += 1000 * (performance.audience - 20)
+                result += 1000 * (performance.audience - 20)
             }
             break
         default:
             fatalError("Unknown type: \(String(describing: play?.type))")
         }
-        return thisAmount
+        return result
     }
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
