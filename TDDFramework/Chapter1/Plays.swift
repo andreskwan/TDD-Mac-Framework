@@ -7,13 +7,6 @@
 
 import Foundation
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let invoices = try? newJSONDecoder().decode(Invoices.self, from: jsonData)
-
-import Foundation
-
 // MARK: - Invoices
 struct Invoices: Codable {
     let invoices: [Invoice]
@@ -42,6 +35,28 @@ struct Play: Codable {
 }
 
 class Cost {
+    
+    fileprivate func getAmountPerPerformance(_ play: Play?, _ performance: Performance) -> Int {
+        var thisAmount = 0
+        switch play?.type {
+        case "tragedy":
+            thisAmount = 40000
+            if (performance.audience > 30) {
+                thisAmount += 1000 * (performance.audience - 30)
+            }
+            break
+        case "comedy":
+            thisAmount = 30000
+            if (performance.audience > 20) {
+                thisAmount += 1000 * (performance.audience - 20)
+            }
+            break
+        default:
+            fatalError("Unknown type: \(String(describing: play?.type))")
+        }
+        return thisAmount
+    }
+    
     func statement(invoice: Invoice, plays: [Play]) -> String {
         var totalAmount = 0
         var volumeCredits = 0.0
@@ -54,22 +69,7 @@ class Cost {
             let play = plays.first(where: { $0.playID == performance.playID})
             var thisAmount = 0
             
-            switch play?.type {
-            case "tragedy":
-                thisAmount = 40000
-                if (performance.audience > 30) {
-                    thisAmount += 1000 * (performance.audience - 30)
-                }
-                break
-            case "comedy":
-                thisAmount = 30000
-                if (performance.audience > 20) {
-                    thisAmount += 1000 * (performance.audience - 20)
-                }
-                break
-            default:
-                fatalError("Unknown type: \(String(describing: play?.type))")
-            }
+            thisAmount = getAmountPerPerformance(play, performance)
             
             // add volume credits
             volumeCredits += Double(max(performance.audience - 30, 0))
@@ -90,3 +90,9 @@ class Cost {
         return result;
     }
 }
+
+/*
+ Requested changes
+ 1 - statement printed in HTML
+ 2 - add more play types
+ */

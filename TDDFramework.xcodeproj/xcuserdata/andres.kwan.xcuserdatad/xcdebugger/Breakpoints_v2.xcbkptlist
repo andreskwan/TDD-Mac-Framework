@@ -14,8 +14,8 @@
             filePath = "TDDFrameworkTests/RefactoringBookTest/Chapter1/PlaysCostReportTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "getInvoices(printData:)"
             landmarkType = "7">
          </BreakpointContent>
