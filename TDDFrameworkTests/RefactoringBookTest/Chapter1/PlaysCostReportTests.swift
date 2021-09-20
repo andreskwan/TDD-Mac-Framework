@@ -12,11 +12,24 @@ class PlaysCostReportTests: XCTestCase {
 
     
     func test_statement_prints_sameResutAsTheBook() {
+        //given
         let sut = Cost()
         let plays = getPlays(printData: true)
         let invoices = getInvoices(printData: true)
+        //when
         let statement = sut.statement(invoice: invoices.invoices[0], plays: plays.plays)
+        
+        //then
+        let expectedStatement = """
+            Statement for BigCo
+              Hamlet: $650 (55 seats)
+              As You Like It: $450 (35 seats)
+              Othello: $500 (40 seats)
+            Amount owed is 1600
+            You earned 47 credits\n
+            """
         print(statement)
+        XCTAssertEqual(statement, expectedStatement)
     }
 
     //MARK: helper functions
