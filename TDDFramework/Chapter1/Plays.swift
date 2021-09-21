@@ -75,8 +75,6 @@ class Cost {
         //                                  minimumFractionDigits: 2 }).format;
         
         for performance in invoice.performances {
-            let thisAmount = amountFor(performance)
-            
             // add volume credits
             volumeCredits += Double(max(performance.audience - 30, 0))
             
@@ -87,8 +85,8 @@ class Cost {
             }
             
             // print line for this order
-            result += "  \(String(describing: playFor(performance)!.name)): $\(thisAmount/100) (\(performance.audience) seats)\n"
-            totalAmount += thisAmount;
+            result += "  \(String(describing: playFor(performance)!.name)): $\(amountFor(performance)/100) (\(performance.audience) seats)\n"
+            totalAmount += amountFor(performance);
         }
 //        result += "Amount owed is ${format(totalAmount/100)}\n";
         result += "Amount owed is \(totalAmount/100)\n";
