@@ -45,8 +45,9 @@ class Cost {
             return plays.first(where: { $0.playID == aPerformance.playID})
         }
         
-        func amountFor(_ aPerformance: Performance, _ play: Play?) -> Int {
+        func amountFor(_ aPerformance: Performance) -> Int {
             var result = 0
+            let play = playFor(aPerformance)
             switch play?.type {
             case "tragedy":
                 result = 40000
@@ -74,20 +75,19 @@ class Cost {
         //                                  minimumFractionDigits: 2 }).format;
         
         for performance in invoice.performances {
-            let play = playFor(performance)
-            let thisAmount = amountFor(performance, play)
+            let thisAmount = amountFor(performance)
             
             // add volume credits
             volumeCredits += Double(max(performance.audience - 30, 0))
             
             // add extra credit for every ten comedy attendees
-            if ("comedy" == play?.type) {
+            if ("comedy" == playFor(performance)?.type) {
                 let value = floor(Double(performance.audience) / 5)
                 volumeCredits += value
             }
             
             // print line for this order
-            result += "  \(String(describing: play!.name)): $\(thisAmount/100) (\(performance.audience) seats)\n"
+            result += "  \(String(describing: playFor(performance)!.name)): $\(thisAmount/100) (\(performance.audience) seats)\n"
             totalAmount += thisAmount;
         }
 //        result += "Amount owed is ${format(totalAmount/100)}\n";
