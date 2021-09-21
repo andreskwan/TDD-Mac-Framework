@@ -36,7 +36,7 @@ struct Play: Codable {
 
 class Cost {
     
-    fileprivate func getAmountPerPerformance(_ play: Play?, _ performance: Performance) -> Int {
+    fileprivate func amountFor(_ performance: Performance, _ play: Play?) -> Int {
         var result = 0
         switch play?.type {
         case "tragedy":
@@ -69,7 +69,7 @@ class Cost {
             let play = plays.first(where: { $0.playID == performance.playID})
             var thisAmount = 0
             
-            thisAmount = getAmountPerPerformance(play, performance)
+            thisAmount = amountFor(performance, play)
             
             // add volume credits
             volumeCredits += Double(max(performance.audience - 30, 0))
