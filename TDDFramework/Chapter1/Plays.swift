@@ -41,6 +41,10 @@ class Cost {
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
          */
+        func playFor(_ aPerformance: Performance) -> Play? {
+            return plays.first(where: { $0.playID == aPerformance.playID})
+        }
+        
         func amountFor(_ aPerformance: Performance, _ play: Play?) -> Int {
             var result = 0
             switch play?.type {
@@ -61,7 +65,7 @@ class Cost {
             }
             return result
         }
-        
+
         var totalAmount = 0
         var volumeCredits = 0.0
         var result = "Statement for \(invoice.customer)\n";
@@ -70,10 +74,8 @@ class Cost {
         //                                  minimumFractionDigits: 2 }).format;
         
         for performance in invoice.performances {
-            let play = plays.first(where: { $0.playID == performance.playID})
-            var thisAmount = 0
-            
-            thisAmount = amountFor(performance, play)
+            let play = playFor(performance)
+            let thisAmount = amountFor(performance, play)
             
             // add volume credits
             volumeCredits += Double(max(performance.audience - 30, 0))
