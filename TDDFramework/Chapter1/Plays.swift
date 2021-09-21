@@ -46,16 +46,30 @@ class Cost {
         }
         
         func volumeCreditsFor(_ aPerformance: Performance) -> Double {
-            var volumeCredits = 0.0
+            var result = 0.0
             // add volume credits
-            volumeCredits += Double(max(aPerformance.audience - 30, 0))
+            result += Double(max(aPerformance.audience - 30, 0))
             
             // add extra credit for every ten comedy attendees
             if ("comedy" == playFor(aPerformance)?.type) {
                 let value = floor(Double(aPerformance.audience) / 5)
-                volumeCredits += value
+                result += value
             }
-            return volumeCredits
+            return result
+        }
+        
+        func format(_ aNumber: Int) -> String {
+            func getUSDFormater() -> NumberFormatter {
+                let formatter = NumberFormatter()
+                formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
+                formatter.numberStyle = .currency
+                return formatter
+            }
+            let aDouble = Double(aNumber)/Double(100)
+            guard let result = getUSDFormater().string(from: aDouble as NSNumber) else {
+                return ""
+            }
+            return result
         }
         
         func amountFor(_ aPerformance: Performance) -> Int {
@@ -83,18 +97,15 @@ class Cost {
         var totalAmount = 0
         var volumeCredits = 0.0
         var result = "Statement for \(invoice.customer)\n";
-        //          const format = new Intl.NumberFormat("en-US",
-        //                                { style: "currency", currency: "USD",
-        //                                  minimumFractionDigits: 2 }).format;
         
         for performance in invoice.performances {
             volumeCredits += volumeCreditsFor(performance)
             // print line for this order
-            result += "  \(String(describing: playFor(performance)!.name)): $\(amountFor(performance)/100) (\(performance.audience) seats)\n"
+            result += "  \(String(describing: playFor(performance)!.name)): \(format(amountFor(performance))) (\(performance.audience) seats)\n"
             totalAmount += amountFor(performance);
         }
-//        result += "Amount owed is ${format(totalAmount/100)}\n";
-        result += "Amount owed is \(totalAmount/100)\n";
+        
+        result += "Amount owed is \(format(totalAmount))\n";
         result += "You earned \(Int(volumeCredits)) credits\n";
         return result;
     }

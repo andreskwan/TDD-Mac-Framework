@@ -22,10 +22,10 @@ class PlaysCostReportTests: XCTestCase {
         //then
         let expectedStatement = """
             Statement for BigCo
-              Hamlet: $650 (55 seats)
-              As You Like It: $450 (35 seats)
-              Othello: $500 (40 seats)
-            Amount owed is 1600
+              Hamlet: $ 650 (55 seats)
+              As You Like It: $ 450 (35 seats)
+              Othello: $ 500 (40 seats)
+            Amount owed is $ 1.600
             You earned 47 credits\n
             """
         print(statement)
