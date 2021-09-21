@@ -57,12 +57,14 @@ class Cost {
             }
             return result
         }
-        
-        func format(_ aNumber: Int) -> String {
+
+        //https://www.swiftbysundell.com/articles/formatting-numbers-in-swift/
+        func usd(_ aNumber: Int) -> String {
             func getUSDFormater() -> NumberFormatter {
                 let formatter = NumberFormatter()
-                formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
                 formatter.numberStyle = .currency
+                formatter.currencyCode = "usd"
+//                formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
                 return formatter
             }
             let aDouble = Double(aNumber)/Double(100)
@@ -101,11 +103,11 @@ class Cost {
         for performance in invoice.performances {
             volumeCredits += volumeCreditsFor(performance)
             // print line for this order
-            result += "  \(String(describing: playFor(performance)!.name)): \(format(amountFor(performance))) (\(performance.audience) seats)\n"
+            result += "  \(String(describing: playFor(performance)!.name)): \(usd(amountFor(performance))) (\(performance.audience) seats)\n"
             totalAmount += amountFor(performance);
         }
         
-        result += "Amount owed is \(format(totalAmount))\n";
+        result += "Amount owed is \(usd(totalAmount))\n";
         result += "You earned \(Int(volumeCredits)) credits\n";
         return result;
     }
