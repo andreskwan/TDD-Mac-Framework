@@ -35,29 +35,29 @@ struct Play: Codable {
 }
 
 class Cost {
-    
-    fileprivate func amountFor(_ performance: Performance, _ play: Play?) -> Int {
-        var result = 0
-        switch play?.type {
-        case "tragedy":
-            result = 40000
-            if (performance.audience > 30) {
-                result += 1000 * (performance.audience - 30)
-            }
-            break
-        case "comedy":
-            result = 30000
-            if (performance.audience > 20) {
-                result += 1000 * (performance.audience - 20)
-            }
-            break
-        default:
-            fatalError("Unknown type: \(String(describing: play?.type))")
-        }
-        return result
-    }
-    
+        
     func statement(invoice: Invoice, plays: [Play]) -> String {
+        func amountFor(_ performance: Performance, _ play: Play?) -> Int {
+            var result = 0
+            switch play?.type {
+            case "tragedy":
+                result = 40000
+                if (performance.audience > 30) {
+                    result += 1000 * (performance.audience - 30)
+                }
+                break
+            case "comedy":
+                result = 30000
+                if (performance.audience > 20) {
+                    result += 1000 * (performance.audience - 20)
+                }
+                break
+            default:
+                fatalError("Unknown type: \(String(describing: play?.type))")
+            }
+            return result
+        }
+        
         var totalAmount = 0
         var volumeCredits = 0.0
         var result = "Statement for \(invoice.customer)\n";
