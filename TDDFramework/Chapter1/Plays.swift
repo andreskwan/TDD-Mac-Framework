@@ -37,19 +37,23 @@ struct Play: Codable {
 class Cost {
         
     func statement(invoice: Invoice, plays: [Play]) -> String {
-        func amountFor(_ performance: Performance, _ play: Play?) -> Int {
+        /* Nesting the extracted function
+         - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
+         - all the extracted nested functions turn statement into a class?
+         */
+        func amountFor(_ aPerformance: Performance, _ play: Play?) -> Int {
             var result = 0
             switch play?.type {
             case "tragedy":
                 result = 40000
-                if (performance.audience > 30) {
-                    result += 1000 * (performance.audience - 30)
+                if (aPerformance.audience > 30) {
+                    result += 1000 * (aPerformance.audience - 30)
                 }
                 break
             case "comedy":
                 result = 30000
-                if (performance.audience > 20) {
-                    result += 1000 * (performance.audience - 20)
+                if (aPerformance.audience > 20) {
+                    result += 1000 * (aPerformance.audience - 20)
                 }
                 break
             default:
