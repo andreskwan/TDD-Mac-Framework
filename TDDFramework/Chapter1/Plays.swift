@@ -34,13 +34,18 @@ struct Play: Codable {
     let playID, name, type: String
 }
 
+struct Statement {
+    
+}
+
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
-        renderPlainText(invoice: invoice, plays: plays)
+        let statemntData = Statement()
+        return renderPlainText(data: statemntData, invoice: invoice, plays: plays)
     }
     
-    func renderPlainText(invoice: Invoice, plays: [Play]) -> String {
+    func renderPlainText(data: Statement, invoice: Invoice, plays: [Play]) -> String {
         /* Nesting the extracted function
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
