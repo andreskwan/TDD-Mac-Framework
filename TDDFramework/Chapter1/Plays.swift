@@ -36,12 +36,13 @@ struct Play: Codable {
 
 struct Statement {
     let customer: String
+    let performances: [Performance]
 }
 
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
-        let statemntData = Statement(customer: invoice.customer)
+        let statemntData = Statement(customer: invoice.customer, performances: invoice.performances)
         return renderPlainText(data: statemntData, invoice: invoice, plays: plays)
     }
     
@@ -86,7 +87,7 @@ class Cost {
         
         func totalVolumeCredits() -> Double {
             var result = 0.0
-            for performance in invoice.performances {
+            for performance in data.performances {
                 result += volumeCreditsFor(performance)
             }
             return result
@@ -94,7 +95,7 @@ class Cost {
         
         func totalAmount() -> Int {
             var result = 0
-            for performance in invoice.performances {
+            for performance in data.performances {
                 result += amountFor(performance);
             }
             return result
@@ -124,7 +125,7 @@ class Cost {
         
         var result = "Statement for \(data.customer)\n";
         
-        for performance in invoice.performances {
+        for performance in data.performances {
             // print line for this order
             result += "  \(String(describing: playFor(performance)!.name)): \(usd(amountFor(performance))) (\(performance.audience) seats)\n"
         }
