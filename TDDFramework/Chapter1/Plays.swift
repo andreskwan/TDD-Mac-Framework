@@ -35,8 +35,12 @@ struct Play: Codable {
 }
 
 class Cost {
-        
+    
     func statement(invoice: Invoice, plays: [Play]) -> String {
+        renderPlainText(invoice: invoice, plays: plays)
+    }
+    
+    func renderPlainText(invoice: Invoice, plays: [Play]) -> String {
         /* Nesting the extracted function
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
@@ -57,14 +61,14 @@ class Cost {
             }
             return result
         }
-
+        
         //https://www.swiftbysundell.com/articles/formatting-numbers-in-swift/
         func usd(_ aNumber: Int) -> String {
             func getUSDFormater() -> NumberFormatter {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 formatter.currencyCode = "usd"
-//                formatter.locale = Locale.current
+                //                formatter.locale = Locale.current
                 // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
                 return formatter
             }
@@ -112,7 +116,7 @@ class Cost {
             }
             return result
         }
-
+        
         var result = "Statement for \(invoice.customer)\n";
         
         for performance in invoice.performances {
