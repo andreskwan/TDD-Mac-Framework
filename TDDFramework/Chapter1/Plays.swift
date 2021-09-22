@@ -64,12 +64,29 @@ class Cost {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .currency
                 formatter.currencyCode = "usd"
-//                formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
+//                formatter.locale = Locale.current
+                // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
                 return formatter
             }
             let aDouble = Double(aNumber)/Double(100)
             guard let result = getUSDFormater().string(from: aDouble as NSNumber) else {
                 return ""
+            }
+            return result
+        }
+        
+        func totalVolumeCredits() -> Double {
+            var result = 0.0
+            for performance in invoice.performances {
+                result += volumeCreditsFor(performance)
+            }
+            return result
+        }
+        
+        func totalAmount() -> Int {
+            var result = 0
+            for performance in invoice.performances {
+                result += amountFor(performance);
             }
             return result
         }
@@ -96,19 +113,15 @@ class Cost {
             return result
         }
 
-        var totalAmount = 0
-        var volumeCredits = 0.0
         var result = "Statement for \(invoice.customer)\n";
         
         for performance in invoice.performances {
-            volumeCredits += volumeCreditsFor(performance)
             // print line for this order
             result += "  \(String(describing: playFor(performance)!.name)): \(usd(amountFor(performance))) (\(performance.audience) seats)\n"
-            totalAmount += amountFor(performance);
         }
         
-        result += "Amount owed is \(usd(totalAmount))\n";
-        result += "You earned \(Int(volumeCredits)) credits\n";
+        result += "Amount owed is \(usd(totalAmount()))\n";
+        result += "You earned \(Int(totalVolumeCredits())) credits\n";
         return result;
     }
 }
