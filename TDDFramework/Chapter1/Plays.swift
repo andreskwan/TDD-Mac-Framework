@@ -20,18 +20,10 @@ struct Invoice: Codable {
     //experimenting
     var plays: [Play]?
     var totalAmount: Int {
-        var result = 0
-        for aPerformance in performances {
-            result += aPerformance.amount;
-        }
-        return result
+        return performances.reduce(0){$0 + $1.amount}
     }
     var totalVolumeCredits: Double {
-        var result = 0.0
-        for aPerformance in performances {
-            result += aPerformance.volumeCredits
-        }
-        return result
+        return performances.reduce(0.0){$0 + $1.volumeCredits}
     }
 }
 
