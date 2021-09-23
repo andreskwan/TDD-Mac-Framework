@@ -26,6 +26,7 @@ struct Performance: Codable {
     //it is optional because the API doesn't provide this field
     //so this prevents the app form being breaked 
     var play: Play?
+    var amount: Int?
 }
 
 // MARK: - Plays
@@ -46,6 +47,28 @@ struct Statement {
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
+        func amountFor(_ aPerformance: Performance) -> Int {
+            var result = 0
+            guard let type = aPerformance.play?.type else { return result }
+            switch type {
+            case "tragedy":
+                result = 40000
+                if (aPerformance.audience > 30) {
+                    result += 1000 * (aPerformance.audience - 30)
+                }
+                break
+            case "comedy":
+                result = 30000
+                if (aPerformance.audience > 20) {
+                    result += 1000 * (aPerformance.audience - 20)
+                }
+                break
+            default:
+                fatalError("Unknown type: \(String(describing: aPerformance.play?.type))")
+            }
+            return result
+        }
+        
         func playFor(_ aPerformance: Performance) -> Play? {
             return plays.first(where: { $0.playID == aPerformance.playID})
         }
@@ -53,6 +76,8 @@ class Cost {
         func enrichPerformance(_ aPerformance: Performance) -> Performance {
             var tempPerformance = aPerformance
             tempPerformance.play = playFor(aPerformance)
+            //amoutFor needs as parameter the tempPerformance which have the play not nil
+            tempPerformance.amount = amountFor(tempPerformance)
             return tempPerformance
         }
         
@@ -108,30 +133,9 @@ class Cost {
         
         func totalAmount() -> Int {
             var result = 0
-            for performance in data.performances {
-                result += amountFor(performance);
-            }
-            return result
-        }
-        
-        func amountFor(_ aPerformance: Performance) -> Int {
-            var result = 0
-            
-            switch aPerformance.play?.type {
-            case "tragedy":
-                result = 40000
-                if (aPerformance.audience > 30) {
-                    result += 1000 * (aPerformance.audience - 30)
-                }
-                break
-            case "comedy":
-                result = 30000
-                if (aPerformance.audience > 20) {
-                    result += 1000 * (aPerformance.audience - 20)
-                }
-                break
-            default:
-                fatalError("Unknown type: \(String(describing: aPerformance.play?.type))")
+            for aPerformance in data.performances {
+                guard let amount = aPerformance.amount else { break }
+                result += amount;
             }
             return result
         }
@@ -141,7 +145,8 @@ class Cost {
         for aPerformance in data.performances {
             // print line for this order
             guard let name = aPerformance.play?.name else { break }
-            result += "  \(name): \(usd(amountFor(aPerformance))) (\(aPerformance.audience) seats)\n"
+            guard let amount = aPerformance.amount else { break }
+            result += "  \(name): \(usd(amount)) (\(aPerformance.audience) seats)\n"
         }
         
         result += "Amount owed is \(usd(totalAmount()))\n";
