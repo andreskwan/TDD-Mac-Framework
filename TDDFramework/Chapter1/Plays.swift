@@ -89,17 +89,17 @@ struct Statement {
     let totalVolumeCredits: Int
 }
 
-func enricheInvoce(_ aInvoice: Invoice, _ plays: [Play]) -> Invoice {
+func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
     func playFor(_ aPerformance: Performance, _ plays: [Play]) -> Play? {
         return plays.first(where: { $0.playID == aPerformance.playID})
     }
     
-    func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
-        var tempPerformance = aPerformance
-        tempPerformance.play = playFor(aPerformance, plays)
-        return tempPerformance
-    }
-    
+    var tempPerformance = aPerformance
+    tempPerformance.play = playFor(aPerformance, plays)
+    return tempPerformance
+}
+
+func enricheInvoce(_ aInvoice: Invoice, _ plays: [Play]) -> Invoice {
     var result = aInvoice
     result.plays = plays
     result.performances = result.performances.map{ enrichPerformance($0, plays) }
