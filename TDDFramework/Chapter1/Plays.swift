@@ -22,6 +22,10 @@ struct Invoice: Codable {
 struct Performance: Codable {
     let playID: String
     let audience: Int
+    //I enriched the performance by adding the Play
+    //it is optional because the API doesn't provide this field
+    //so this prevents the app form being breaked 
+    var play: Play?
 }
 
 // MARK: - Plays
@@ -36,14 +40,26 @@ struct Play: Codable {
 
 struct Statement {
     let customer: String
-    let performances: [Performance]
+    let performances: [Performance] //is this data inmutable/copied or does it reference to the same array? let guranties that is inmutable.
 }
 
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
-        let statemntData = Statement(customer: invoice.customer, performances: invoice.performances)
-        return renderPlainText(data: statemntData, invoice: invoice, plays: plays)
+        func playFor(_ aPerformance: Performance) -> Play? {
+            return plays.first(where: { $0.playID == aPerformance.playID})
+        }
+        
+        func enrichPerformance(_ aPerformance: Performance) -> Performance {
+            var tempPerformance = aPerformance
+            tempPerformance.play = playFor(aPerformance)
+            return tempPerformance
+        }
+        
+        let statementData = Statement(customer: invoice.customer,
+                                      performances: invoice.performances.compactMap(enrichPerformance))
+        
+        return renderPlainText(data: statementData, invoice: invoice, plays: plays)
     }
     
     func renderPlainText(data: Statement, invoice: Invoice, plays: [Play]) -> String {
@@ -51,9 +67,6 @@ class Cost {
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
          */
-        func playFor(_ aPerformance: Performance) -> Play? {
-            return plays.first(where: { $0.playID == aPerformance.playID})
-        }
         
         func volumeCreditsFor(_ aPerformance: Performance) -> Double {
             var result = 0.0
@@ -61,7 +74,7 @@ class Cost {
             result += Double(max(aPerformance.audience - 30, 0))
             
             // add extra credit for every ten comedy attendees
-            if ("comedy" == playFor(aPerformance)?.type) {
+            if ("comedy" == aPerformance.play?.type) {
                 let value = floor(Double(aPerformance.audience) / 5)
                 result += value
             }
@@ -103,8 +116,8 @@ class Cost {
         
         func amountFor(_ aPerformance: Performance) -> Int {
             var result = 0
-            let play = playFor(aPerformance)
-            switch play?.type {
+            
+            switch aPerformance.play?.type {
             case "tragedy":
                 result = 40000
                 if (aPerformance.audience > 30) {
@@ -118,16 +131,17 @@ class Cost {
                 }
                 break
             default:
-                fatalError("Unknown type: \(String(describing: play?.type))")
+                fatalError("Unknown type: \(String(describing: aPerformance.play?.type))")
             }
             return result
         }
         
         var result = "Statement for \(data.customer)\n";
         
-        for performance in data.performances {
+        for aPerformance in data.performances {
             // print line for this order
-            result += "  \(String(describing: playFor(performance)!.name)): \(usd(amountFor(performance))) (\(performance.audience) seats)\n"
+            guard let name = aPerformance.play?.name else { break }
+            result += "  \(name): \(usd(amountFor(aPerformance))) (\(aPerformance.audience) seats)\n"
         }
         
         result += "Amount owed is \(usd(totalAmount()))\n";
