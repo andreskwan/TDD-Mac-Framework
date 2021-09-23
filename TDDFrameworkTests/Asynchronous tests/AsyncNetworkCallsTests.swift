@@ -24,10 +24,13 @@ final class AsyncNetworkCallsTests: XCTestCase {
     func test_noServerResponse() {
         let url = URL(string: "invalidURL")!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            defer { self.expectation.fulfill() }
+            defer { self.expectation.fulfill()
+                print("2) in defer block, must be called at the end of the complition")
+            }
             XCTAssertNil(data)
             XCTAssertNil(response)
             XCTAssertNotNil(error)
+            print("1) must be printed before the defer block is called")
         }
         .resume()
         
