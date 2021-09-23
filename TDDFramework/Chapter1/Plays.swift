@@ -27,6 +27,7 @@ struct Performance: Codable {
     //so this prevents the app form being breaked 
     var play: Play?
     var amount: Int?
+    var volumeCredits: Double?
 }
 
 // MARK: - Plays
@@ -47,6 +48,19 @@ struct Statement {
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
+        func volumeCreditsFor(_ aPerformance: Performance) -> Double {
+            var result = 0.0
+            // add volume credits
+            result += Double(max(aPerformance.audience - 30, 0))
+            
+            // add extra credit for every ten comedy attendees
+            if ("comedy" == aPerformance.play?.type) {
+                let value = floor(Double(aPerformance.audience) / 5)
+                result += value
+            }
+            return result
+        }
+        
         func amountFor(_ aPerformance: Performance) -> Int {
             var result = 0
             guard let type = aPerformance.play?.type else { return result }
@@ -78,6 +92,7 @@ class Cost {
             tempPerformance.play = playFor(aPerformance)
             //amoutFor needs as parameter the tempPerformance which have the play not nil
             tempPerformance.amount = amountFor(tempPerformance)
+            tempPerformance.volumeCredits = volumeCreditsFor(tempPerformance)
             return tempPerformance
         }
         
@@ -92,19 +107,6 @@ class Cost {
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
          */
-        
-        func volumeCreditsFor(_ aPerformance: Performance) -> Double {
-            var result = 0.0
-            // add volume credits
-            result += Double(max(aPerformance.audience - 30, 0))
-            
-            // add extra credit for every ten comedy attendees
-            if ("comedy" == aPerformance.play?.type) {
-                let value = floor(Double(aPerformance.audience) / 5)
-                result += value
-            }
-            return result
-        }
         
         //https://www.swiftbysundell.com/articles/formatting-numbers-in-swift/
         func usd(_ aNumber: Int) -> String {
@@ -125,8 +127,9 @@ class Cost {
         
         func totalVolumeCredits() -> Double {
             var result = 0.0
-            for performance in data.performances {
-                result += volumeCreditsFor(performance)
+            for aPerformance in data.performances {
+                guard let volumeCredits = aPerformance.volumeCredits else { break }
+                result += volumeCredits
             }
             return result
         }
