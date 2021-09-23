@@ -15,19 +15,69 @@ struct Invoices: Codable {
 // MARK: - Invoice
 struct Invoice: Codable {
     let customer: String
-    let performances: [Performance]
+    var performances: [Performance]
+    
+    //experimenting
+    var plays: [Play]?
+    var totalAmount: Int {
+        var result = 0
+        for aPerformance in performances {
+            result += aPerformance.amount;
+        }
+        return result
+    }
+    var totalVolumeCredits: Double {
+        var result = 0.0
+        for aPerformance in performances {
+            result += aPerformance.volumeCredits
+        }
+        return result
+    }
 }
 
 // MARK: - Performance
 struct Performance: Codable {
     let playID: String
     let audience: Int
+    
+    //experimenting
     //I enriched the performance by adding the Play
     //it is optional because the API doesn't provide this field
     //so this prevents the app form being breaked 
     var play: Play?
-    var amount: Int?
-    var volumeCredits: Double?
+    var amount: Int {
+        var result = 0
+        guard let type = play?.type else { return result }
+        switch type {
+        case "tragedy":
+            result = 40000
+            if (audience > 30) {
+                result += 1000 * (audience - 30)
+            }
+            break
+        case "comedy":
+            result = 30000
+            if (audience > 20) {
+                result += 1000 * (audience - 20)
+            }
+            break
+        default:
+            fatalError("Unknown type: \(String(describing: play?.type))")
+        }
+        return result
+    }
+    var volumeCredits: Double {
+        var result = 0.0
+        // add volume credits
+        result += Double(max(audience - 30, 0))
+        
+        // add extra credit for every ten comedy attendees
+        if ("comedy" == play?.type) {
+            let value = floor(Double(audience) / 5)
+            result += value
+        }
+        return result
+    }
 }
 
 // MARK: - Plays
@@ -43,46 +93,13 @@ struct Play: Codable {
 struct Statement {
     let customer: String
     let performances: [Performance] //is this data inmutable/copied or does it reference to the same array? let guranties that is inmutable.
+    let totalAmount: Double
+    let totalVolumeCredits: Int
 }
 
 class Cost {
     
     func statement(invoice: Invoice, plays: [Play]) -> String {
-        func volumeCreditsFor(_ aPerformance: Performance) -> Double {
-            var result = 0.0
-            // add volume credits
-            result += Double(max(aPerformance.audience - 30, 0))
-            
-            // add extra credit for every ten comedy attendees
-            if ("comedy" == aPerformance.play?.type) {
-                let value = floor(Double(aPerformance.audience) / 5)
-                result += value
-            }
-            return result
-        }
-        
-        func amountFor(_ aPerformance: Performance) -> Int {
-            var result = 0
-            guard let type = aPerformance.play?.type else { return result }
-            switch type {
-            case "tragedy":
-                result = 40000
-                if (aPerformance.audience > 30) {
-                    result += 1000 * (aPerformance.audience - 30)
-                }
-                break
-            case "comedy":
-                result = 30000
-                if (aPerformance.audience > 20) {
-                    result += 1000 * (aPerformance.audience - 20)
-                }
-                break
-            default:
-                fatalError("Unknown type: \(String(describing: aPerformance.play?.type))")
-            }
-            return result
-        }
-        
         func playFor(_ aPerformance: Performance) -> Play? {
             return plays.first(where: { $0.playID == aPerformance.playID})
         }
@@ -90,24 +107,25 @@ class Cost {
         func enrichPerformance(_ aPerformance: Performance) -> Performance {
             var tempPerformance = aPerformance
             tempPerformance.play = playFor(aPerformance)
-            //amoutFor needs as parameter the tempPerformance which have the play not nil
-            tempPerformance.amount = amountFor(tempPerformance)
-            tempPerformance.volumeCredits = volumeCreditsFor(tempPerformance)
             return tempPerformance
         }
         
-        let statementData = Statement(customer: invoice.customer,
-                                      performances: invoice.performances.compactMap(enrichPerformance))
+        func enricheInvoce(_ aInvoice: Invoice) -> Invoice {
+            var result = aInvoice
+            result.plays = plays
+            result.performances = result.performances.map(enrichPerformance)
+            return result
+        }
         
-        return renderPlainText(data: statementData, invoice: invoice, plays: plays)
+        return renderPlainText(invoice: enricheInvoce(invoice))
     }
     
-    func renderPlainText(data: Statement, invoice: Invoice, plays: [Play]) -> String {
+//    func renderPlainText(data: Statement, invoice: Invoice, plays: [Play]) -> String {
+      func renderPlainText(invoice: Invoice) -> String {
         /* Nesting the extracted function
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
          */
-        
         //https://www.swiftbysundell.com/articles/formatting-numbers-in-swift/
         func usd(_ aNumber: Int) -> String {
             func getUSDFormater() -> NumberFormatter {
@@ -125,35 +143,15 @@ class Cost {
             return result
         }
         
-        func totalVolumeCredits() -> Double {
-            var result = 0.0
-            for aPerformance in data.performances {
-                guard let volumeCredits = aPerformance.volumeCredits else { break }
-                result += volumeCredits
-            }
-            return result
-        }
+        var result = "Statement for \(invoice.customer)\n";
         
-        func totalAmount() -> Int {
-            var result = 0
-            for aPerformance in data.performances {
-                guard let amount = aPerformance.amount else { break }
-                result += amount;
-            }
-            return result
-        }
-        
-        var result = "Statement for \(data.customer)\n";
-        
-        for aPerformance in data.performances {
-            // print line for this order
+        for aPerformance in invoice.performances {
             guard let name = aPerformance.play?.name else { break }
-            guard let amount = aPerformance.amount else { break }
-            result += "  \(name): \(usd(amount)) (\(aPerformance.audience) seats)\n"
+            result += "  \(name): \(usd(aPerformance.amount)) (\(aPerformance.audience) seats)\n"
         }
         
-        result += "Amount owed is \(usd(totalAmount()))\n";
-        result += "You earned \(Int(totalVolumeCredits())) credits\n";
+        result += "Amount owed is \(usd(invoice.totalAmount))\n";
+        result += "You earned \(Int(invoice.totalVolumeCredits)) credits\n";
         return result;
     }
 }
