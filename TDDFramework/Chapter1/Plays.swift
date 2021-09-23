@@ -18,6 +18,9 @@ struct Invoice: Codable {
     var performances: [Performance]
     
     //experimenting
+    //I enriched the performance by adding the Plays
+    //it is optional because the API doesn't provide this field
+    //so this prevents the app form being breaked
     var plays: [Play]?
     var totalAmount: Int {
         return performances.reduce(0){$0 + $1.amount}
@@ -83,36 +86,57 @@ struct Play: Codable {
 }
 
 struct Statement {
-    let customer: String
-    let performances: [Performance] //is this data inmutable/copied or does it reference to the same array? let guranties that is inmutable.
-    let totalAmount: Double
-    let totalVolumeCredits: Int
-}
-
-func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
-    func playFor(_ aPerformance: Performance, _ plays: [Play]) -> Play? {
-        return plays.first(where: { $0.playID == aPerformance.playID})
+    let invoice: Invoice
+    let plays: [Play]
+    
+    var customer: String {
+        return invoice.customer
     }
     
-    var tempPerformance = aPerformance
-    tempPerformance.play = playFor(aPerformance, plays)
-    return tempPerformance
-}
+    var totalAmount: Int {
+        return invoice.totalAmount
+    }
+    
+    var totalVolumeCredits: Double {
+        return invoice.totalVolumeCredits
+    }
+    
+    var performances: [Performance] {
+        return invoice.performances
+    }
+    
+    static func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
+        func playFor(_ aPerformance: Performance, _ plays: [Play]) -> Play? {
+            return plays.first(where: { $0.playID == aPerformance.playID})
+        }
+        
+        var tempPerformance = aPerformance
+        tempPerformance.play = playFor(aPerformance, plays)
+        return tempPerformance
+    }
 
-func enricheInvoce(_ aInvoice: Invoice, _ plays: [Play]) -> Invoice {
-    var result = aInvoice
-    result.plays = plays
-    result.performances = result.performances.map{ enrichPerformance($0, plays) }
-    return result
+    static func enricheInvoice(_ invoice: Invoice, _ plays: [Play]) -> Invoice {
+        var result = invoice
+        result.performances = invoice.performances.map{ enrichPerformance($0, plays) }
+        return result
+    }
+    
+    init(_ invoice: Invoice, _ plays: [Play]) {
+        self.invoice = Statement.enricheInvoice(invoice, plays)
+        self.plays = plays
+    }
 }
 
 class Cost {
-    
-    func statement(invoice: Invoice, plays: [Play]) -> String {
-        return renderPlainText(invoice: enricheInvoce(invoice, plays))
+    func createStatemen(_ invoice: Invoice, _ plays: [Play]) -> Statement {
+        return Statement(invoice, plays)
     }
     
-    func renderPlainText(invoice: Invoice) -> String {
+    func statement(invoice: Invoice, plays: [Play]) -> String {
+        return renderPlainText(createStatemen(invoice, plays))
+    }
+    
+    func renderPlainText(_ statement: Statement) -> String {
         /* Nesting the extracted function
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
@@ -134,15 +158,15 @@ class Cost {
             return result
         }
         
-        var result = "Statement for \(invoice.customer)\n";
+        var result = "Statement for \(statement.customer)\n";
         
-        for aPerformance in invoice.performances {
+        for aPerformance in statement.performances {
             guard let name = aPerformance.play?.name else { break }
             result += "  \(name): \(usd(aPerformance.amount)) (\(aPerformance.audience) seats)\n"
         }
         
-        result += "Amount owed is \(usd(invoice.totalAmount))\n";
-        result += "You earned \(Int(invoice.totalVolumeCredits)) credits\n";
+        result += "Amount owed is \(usd(statement.totalAmount))\n";
+        result += "You earned \(Int(statement.totalVolumeCredits)) credits\n";
         return result;
     }
 }
