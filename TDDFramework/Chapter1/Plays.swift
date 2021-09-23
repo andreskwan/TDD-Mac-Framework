@@ -110,18 +110,17 @@ class Cost {
             return tempPerformance
         }
         
-        func enricheInvoce(_ aInvoice: Invoice) -> Invoice {
+        func enricheInvoce(_ aInvoice: Invoice, _ plays: [Play]) -> Invoice {
             var result = aInvoice
             result.plays = plays
             result.performances = result.performances.map(enrichPerformance)
             return result
         }
         
-        return renderPlainText(invoice: enricheInvoce(invoice))
+        return renderPlainText(invoice: enricheInvoce(invoice, plays))
     }
     
-//    func renderPlainText(data: Statement, invoice: Invoice, plays: [Play]) -> String {
-      func renderPlainText(invoice: Invoice) -> String {
+    func renderPlainText(invoice: Invoice) -> String {
         /* Nesting the extracted function
          - This is helpful as it means I don't have to pass data that's inside the scope of the containing function to the newly extracted function.
          - all the extracted nested functions turn statement into a class?
