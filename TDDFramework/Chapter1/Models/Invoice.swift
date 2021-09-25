@@ -23,7 +23,7 @@ struct Invoice: Codable {
     //so this prevents the app form being breaked
     var plays: [Play]?
     var totalAmount: Int {
-        return performances.reduce(0){$0 + $1.amount}
+        return performances.reduce(0){$0 + ($1.amount ?? 0)}
     }
     var totalVolumeCredits: Double {
         return performances.reduce(0.0){$0 + $1.volumeCredits}

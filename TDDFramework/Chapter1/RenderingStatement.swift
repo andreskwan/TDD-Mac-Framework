@@ -22,7 +22,8 @@ func renderPlainText(_ statement: StatementData) -> String {
     
     for aPerformance in statement.performances {
         guard let name = aPerformance.play?.name else { break }
-        result += "  \(name): \(usd(aPerformance.amount)) (\(aPerformance.audience) seats)\n"
+        guard let amount = aPerformance.amount else { break }
+        result += "  \(name): \(usd(amount)) (\(aPerformance.audience) seats)\n"
     }
     
     result += "Amount owed is \(usd(statement.totalAmount))\n";

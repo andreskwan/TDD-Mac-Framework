@@ -22,27 +22,7 @@ struct Performance: Codable {
      - is it to specific?
     
      */
-    var amount: Int {
-        var result = 0
-        guard let type = play?.type else { return result }
-        switch type {
-        case "tragedy":
-            result = 40000
-            if (audience > 30) {
-                result += 1000 * (audience - 30)
-            }
-            break
-        case "comedy":
-            result = 30000
-            if (audience > 20) {
-                result += 1000 * (audience - 20)
-            }
-            break
-        default:
-            fatalError("Unknown type: \(String(describing: play?.type))")
-        }
-        return result
-    }
+    var amount: Int?
     
     var volumeCredits: Double {
         var result = 0.0
