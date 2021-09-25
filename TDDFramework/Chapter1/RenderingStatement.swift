@@ -30,4 +30,6 @@ func renderPlainText(_ statement: StatementData) -> String {
     return result;
 }
 
+func renderHTML(_ statement: StatementData) { }
+
 
