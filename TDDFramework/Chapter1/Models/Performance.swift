@@ -18,7 +18,10 @@ struct Performance: Codable {
     //so this prevents the app form being breaked
     var play: Play?
     
-    //this code is to specific
+    /*What is the problem with this code?
+     - is it to specific?
+    
+     */
     var amount: Int {
         var result = 0
         guard let type = play?.type else { return result }
@@ -40,6 +43,7 @@ struct Performance: Codable {
         }
         return result
     }
+    
     var volumeCredits: Double {
         var result = 0.0
         // add volume credits

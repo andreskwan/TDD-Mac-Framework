@@ -31,9 +31,9 @@ struct StatementData {
         func playFor(_ aPerformance: Performance, _ plays: [Play]) -> Play? {
             return plays.first(where: { $0.playID == aPerformance.playID})
         }
-        
+        let calculator = PerformanceCalculator(aPerformance: aPerformance, aPlay: playFor(aPerformance, plays))
         var tempPerformance = aPerformance
-        tempPerformance.play = playFor(aPerformance, plays)
+        tempPerformance.play = calculator.play
         return tempPerformance
     }
 

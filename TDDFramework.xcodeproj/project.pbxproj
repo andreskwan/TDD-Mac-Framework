@@ -14,6 +14,7 @@
 		F469B66626FFBBB00043EFA9 /* CurrencyFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */; };
 		F469B66826FFBC6D0043EFA9 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66726FFBC6D0043EFA9 /* Performance.swift */; };
 		F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66926FFBCA60043EFA9 /* Play.swift */; };
+		F469B66C26FFDC890043EFA9 /* PerformanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */; };
 		F4BB6AA726F79D57006B2205 /* RenderingStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */; };
 		F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */; };
 		F4BB6AAD26F7A9AF006B2205 /* PlaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */; };
@@ -42,6 +43,7 @@
 		F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormats.swift; sourceTree = "<group>"; };
 		F469B66726FFBC6D0043EFA9 /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		F469B66926FFBCA60043EFA9 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCalculator.swift; sourceTree = "<group>"; };
 		F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderingStatement.swift; sourceTree = "<group>"; };
 		F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysCostReportTests.swift; sourceTree = "<group>"; };
 		F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysData.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				F4EC132126FD102D007AC929 /* Models */,
 				F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */,
 				F4EC131F26FD1001007AC929 /* StatementData.swift */,
+				F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */,
 			);
 			path = Chapter1;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				F469B66826FFBC6D0043EFA9 /* Performance.swift in Sources */,
 				F469B66626FFBBB00043EFA9 /* CurrencyFormats.swift in Sources */,
+				F469B66C26FFDC890043EFA9 /* PerformanceCalculator.swift in Sources */,
 				F407B75E26D846E40075E620 /* Quotes.swift in Sources */,
 				F4BB6AA726F79D57006B2205 /* RenderingStatement.swift in Sources */,
 				F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */,
