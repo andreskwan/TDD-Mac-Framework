@@ -31,33 +31,11 @@ struct StatementData {
         return plays.first(where: { $0.playID == aPerformance.playID})
     }
     
-    static func amountFor(_ aPerformance: Performance) -> Int {
-        var result = 0
-        guard let type = aPerformance.play?.type else { return result }
-        switch type {
-        case "tragedy":
-            result = 40000
-            if (aPerformance.audience > 30) {
-                result += 1000 * (aPerformance.audience - 30)
-            }
-            break
-        case "comedy":
-            result = 30000
-            if (aPerformance.audience > 20) {
-                result += 1000 * (aPerformance.audience - 20)
-            }
-            break
-        default:
-            fatalError("Unknown type: \(String(describing: aPerformance.play?.type))")
-        }
-        return result
-    }
-    
     static func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
         let calculator = PerformanceCalculator(aPerformance: aPerformance, aPlay: playFor(aPerformance, plays))
         var tempPerformance = aPerformance
         tempPerformance.play = calculator.play
-        tempPerformance.amount = amountFor(tempPerformance)
+        tempPerformance.amount = calculator.amount()
         return tempPerformance
     }
 
