@@ -13,11 +13,11 @@ class PlaysCostReportTests: XCTestCase {
     
     func test_statement_prints_sameResutAsTheBook() {
         //given
-        let sut = Cost()
         let plays = getPlays(printData: true)
         let invoices = getInvoices(printData: true)
+        
         //when
-        let statement = sut.statement(invoice: invoices.invoices[0], plays: plays.plays)
+        let sut = statement(invoice: invoices.invoices[0], plays: plays.plays)
         
         //then
         let expectedStatement = """
@@ -28,8 +28,8 @@ class PlaysCostReportTests: XCTestCase {
             Amount owed is US$ 1.600,00
             You earned 47 credits\n
             """
-        print(statement)
-        XCTAssertEqual(statement, expectedStatement)
+        print(sut)
+        XCTAssertEqual(sut, expectedStatement)
     }
 
     //MARK: helper functions

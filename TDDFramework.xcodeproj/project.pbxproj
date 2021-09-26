@@ -11,9 +11,15 @@
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
 		F407B75E26D846E40075E620 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75D26D846E40075E620 /* Quotes.swift */; };
-		F4BB6AA726F79D57006B2205 /* Plays.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AA626F79D57006B2205 /* Plays.swift */; };
+		F469B66626FFBBB00043EFA9 /* CurrencyFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */; };
+		F469B66826FFBC6D0043EFA9 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66726FFBC6D0043EFA9 /* Performance.swift */; };
+		F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66926FFBCA60043EFA9 /* Play.swift */; };
+		F469B66C26FFDC890043EFA9 /* PerformanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */; };
+		F4BB6AA726F79D57006B2205 /* RenderingStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */; };
 		F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */; };
 		F4BB6AAD26F7A9AF006B2205 /* PlaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */; };
+		F4EC132026FD1001007AC929 /* StatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EC131F26FD1001007AC929 /* StatementData.swift */; };
+		F4EC132326FD103C007AC929 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EC132226FD103C007AC929 /* Invoice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,15 @@
 		F407B74326D845F40075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncNetworkCallsTests.swift; sourceTree = "<group>"; };
 		F407B75D26D846E40075E620 /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
-		F4BB6AA626F79D57006B2205 /* Plays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plays.swift; sourceTree = "<group>"; };
+		F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormats.swift; sourceTree = "<group>"; };
+		F469B66726FFBC6D0043EFA9 /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
+		F469B66926FFBCA60043EFA9 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCalculator.swift; sourceTree = "<group>"; };
+		F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderingStatement.swift; sourceTree = "<group>"; };
 		F4BB6AAA26F7A675006B2205 /* PlaysCostReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysCostReportTests.swift; sourceTree = "<group>"; };
 		F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysData.swift; sourceTree = "<group>"; };
+		F4EC131F26FD1001007AC929 /* StatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementData.swift; sourceTree = "<group>"; };
+		F4EC132226FD103C007AC929 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,14 @@
 			path = "Asynchronous Tests";
 			sourceTree = "<group>";
 		};
+		F469B66426FFBB990043EFA9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F4BB6AA326F79CF2006B2205 /* To Test Asynchronously */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +144,11 @@
 		F4BB6AA526F79D25006B2205 /* Chapter1 */ = {
 			isa = PBXGroup;
 			children = (
-				F4BB6AA626F79D57006B2205 /* Plays.swift */,
+				F469B66426FFBB990043EFA9 /* Helpers */,
+				F4EC132126FD102D007AC929 /* Models */,
+				F4BB6AA626F79D57006B2205 /* RenderingStatement.swift */,
+				F4EC131F26FD1001007AC929 /* StatementData.swift */,
+				F469B66B26FFDC890043EFA9 /* PerformanceCalculator.swift */,
 			);
 			path = Chapter1;
 			sourceTree = "<group>";
@@ -144,6 +168,16 @@
 				F4BB6AAC26F7A9AF006B2205 /* PlaysData.swift */,
 			);
 			path = Chapter1;
+			sourceTree = "<group>";
+		};
+		F4EC132126FD102D007AC929 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4EC132226FD103C007AC929 /* Invoice.swift */,
+				F469B66726FFBC6D0043EFA9 /* Performance.swift */,
+				F469B66926FFBCA60043EFA9 /* Play.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F469B66826FFBC6D0043EFA9 /* Performance.swift in Sources */,
+				F469B66626FFBBB00043EFA9 /* CurrencyFormats.swift in Sources */,
+				F469B66C26FFDC890043EFA9 /* PerformanceCalculator.swift in Sources */,
 				F407B75E26D846E40075E620 /* Quotes.swift in Sources */,
-				F4BB6AA726F79D57006B2205 /* Plays.swift in Sources */,
+				F4BB6AA726F79D57006B2205 /* RenderingStatement.swift in Sources */,
+				F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */,
+				F4EC132026FD1001007AC929 /* StatementData.swift in Sources */,
+				F4EC132326FD103C007AC929 /* Invoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
