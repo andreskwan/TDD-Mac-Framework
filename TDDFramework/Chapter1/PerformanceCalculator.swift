@@ -20,20 +20,17 @@ class PerformanceCalculator {
     }
     
     func amount() -> Int {
-        var result = 0
+        let result = 0
         guard let play = aPerformance.play else {
             fatalError("the play of the Performance should be set at this level")
         }
         
         switch play.type {
         case "tragedy":
-            fatalError("should be calculated by a subclass")
+            fatalError("should be calculated by the TragedyCalculator subclass")
             break
         case "comedy":
-            result = 30000
-            if (aPerformance.audience > 20) {
-                result += 1000 * (aPerformance.audience - 20)
-            }
+            fatalError("should be calculated by the ComedyCalculator subclass")
             break
         default:
             fatalError("Unknown type: \(String(describing: play.type))")
@@ -66,5 +63,11 @@ class TragedyCalculator: PerformanceCalculator {
 }
 
 class ComedyCalculator: PerformanceCalculator {
-    
+    override func amount() -> Int {
+        var result = 30000
+        if (aPerformance.audience > 20) {
+            result += 1000 * (aPerformance.audience - 20)
+        }
+        return result
+    }
 }
