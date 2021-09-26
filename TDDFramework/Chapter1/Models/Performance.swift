@@ -17,11 +17,6 @@ struct Performance: Codable {
     //it is optional because the API doesn't provide this field
     //so this prevents the app form being breaked
     var play: Play?
-    
-    /*What is the problem with this code?
-     - is it to specific?
-    
-     */
     var amount: Int?
     var volumeCredits: Double?
 }

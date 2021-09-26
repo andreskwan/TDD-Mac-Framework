@@ -31,8 +31,12 @@ struct StatementData {
         return plays.first(where: { $0.playID == aPerformance.playID})
     }
     
+    fileprivate static func createPerformanceCalculator(_ aPerformance: Performance, _ plays: [Play]) -> PerformanceCalculator {
+        return PerformanceCalculator(aPerformance: aPerformance, aPlay: playFor(aPerformance, plays))
+    }
+    
     static func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
-        let calculator = PerformanceCalculator(aPerformance: aPerformance, aPlay: playFor(aPerformance, plays))
+        let calculator = createPerformanceCalculator(aPerformance, plays)
         var tempPerformance = aPerformance
         tempPerformance.play = calculator.play
         tempPerformance.amount = calculator.amount()
