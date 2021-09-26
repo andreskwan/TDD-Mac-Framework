@@ -24,16 +24,7 @@ class PerformanceCalculator {
     }
     
     func volumeCredits() -> Double {
-        var result = 0.0
-        // add volume credits
-        result += Double(max(aPerformance.audience - 30, 0))
-        
-        // add extra credit for every ten comedy attendees
-        if ("comedy" == play?.type) {
-            let value = floor(Double(aPerformance.audience) / 5)
-            result += value
-        }
-        return result
+        fatalError("should be calculated by a subclass")
     }
 }
 
@@ -45,6 +36,10 @@ class TragedyCalculator: PerformanceCalculator {
         }
         return result
     }
+    
+    override func volumeCredits() -> Double {
+        return Double(max(aPerformance.audience - 30, 0))
+    }
 }
 
 class ComedyCalculator: PerformanceCalculator {
@@ -53,6 +48,14 @@ class ComedyCalculator: PerformanceCalculator {
         if (aPerformance.audience > 20) {
             result += 1000 * (aPerformance.audience - 20)
         }
+        return result
+    }
+    
+    override func volumeCredits() -> Double {
+        var result = 0.0
+        result += Double(max(aPerformance.audience - 30, 0))
+        let value = floor(Double(aPerformance.audience) / 5)
+        result += value
         return result
     }
 }

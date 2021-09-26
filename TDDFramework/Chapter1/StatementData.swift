@@ -11,8 +11,17 @@ struct StatementData {
     let invoice: Invoice
     let plays: [Play]
     
+    init(_ invoice: Invoice, _ plays: [Play]) {
+        self.invoice = StatementData.enricheInvoice(invoice, plays)
+        self.plays = plays
+    }
+
     var customer: String {
         return invoice.customer
+    }
+    
+    var performances: [Performance] {
+        return invoice.performances
     }
     
     var totalAmount: Int {
@@ -21,10 +30,6 @@ struct StatementData {
     
     var totalVolumeCredits: Double {
         return invoice.totalVolumeCredits
-    }
-    
-    var performances: [Performance] {
-        return invoice.performances
     }
     
     static func playFor(_ aPerformance: Performance, _ plays: [Play]) -> Play? {
@@ -59,8 +64,4 @@ struct StatementData {
         return result
     }
     
-    init(_ invoice: Invoice, _ plays: [Play]) {
-        self.invoice = StatementData.enricheInvoice(invoice, plays)
-        self.plays = plays
-    }
 }
