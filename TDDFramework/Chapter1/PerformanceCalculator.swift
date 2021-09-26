@@ -10,7 +10,7 @@ import Foundation
 class PerformanceCalculator {
     private var aPerformance: Performance!
     
-    init(aPerformance: Performance, aPlay: Play?) {
+    init(_ aPerformance: Performance, _ aPlay: Play?) {
         self.aPerformance = aPerformance
         self.aPerformance.play = aPlay
     }
@@ -56,4 +56,12 @@ class PerformanceCalculator {
         }
         return result
     }
+}
+
+class TragedyCalculator: PerformanceCalculator {
+    
+}
+
+class ComedyCalculator: PerformanceCalculator {
+    
 }

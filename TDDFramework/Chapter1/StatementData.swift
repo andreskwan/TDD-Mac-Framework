@@ -32,7 +32,16 @@ struct StatementData {
     }
     
     fileprivate static func createPerformanceCalculator(_ aPerformance: Performance, _ plays: [Play]) -> PerformanceCalculator {
-        return PerformanceCalculator(aPerformance: aPerformance, aPlay: playFor(aPerformance, plays))
+        let aPlay: Play? = playFor(aPerformance, plays)
+        
+        switch aPlay?.type {
+        case "tragedy":
+            return TragedyCalculator(aPerformance, aPlay)
+        case "comedy":
+            return ComedyCalculator(aPerformance, aPlay)
+        default:
+            fatalError("Not matching play.type \(String(describing: aPlay?.type))")
+        }
     }
     
     static func enrichPerformance(_ aPerformance: Performance, _ plays: [Play]) -> Performance {
