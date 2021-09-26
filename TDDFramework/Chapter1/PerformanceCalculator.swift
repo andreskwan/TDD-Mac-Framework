@@ -8,7 +8,7 @@
 import Foundation
 
 class PerformanceCalculator {
-    private var aPerformance: Performance!
+    private(set) var aPerformance: Performance!
     
     init(_ aPerformance: Performance, _ aPlay: Play?) {
         self.aPerformance = aPerformance
@@ -27,10 +27,7 @@ class PerformanceCalculator {
         
         switch play.type {
         case "tragedy":
-            result = 40000
-            if (aPerformance.audience > 30) {
-                result += 1000 * (aPerformance.audience - 30)
-            }
+            fatalError("should be calculated by a subclass")
             break
         case "comedy":
             result = 30000
@@ -59,7 +56,13 @@ class PerformanceCalculator {
 }
 
 class TragedyCalculator: PerformanceCalculator {
-    
+    override func amount() -> Int {
+        var result = 40000
+        if (aPerformance.audience > 30) {
+            result += 1000 * (aPerformance.audience - 30)
+        }
+        return result
+    }
 }
 
 class ComedyCalculator: PerformanceCalculator {
