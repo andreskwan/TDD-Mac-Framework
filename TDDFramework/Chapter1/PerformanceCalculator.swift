@@ -43,4 +43,17 @@ class PerformanceCalculator {
         }
         return result
     }
+    
+    func volumeCredits() -> Double {
+        var result = 0.0
+        // add volume credits
+        result += Double(max(aPerformance.audience - 30, 0))
+        
+        // add extra credit for every ten comedy attendees
+        if ("comedy" == play?.type) {
+            let value = floor(Double(aPerformance.audience) / 5)
+            result += value
+        }
+        return result
+    }
 }

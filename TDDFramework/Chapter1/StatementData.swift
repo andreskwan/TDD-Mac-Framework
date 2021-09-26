@@ -36,6 +36,7 @@ struct StatementData {
         var tempPerformance = aPerformance
         tempPerformance.play = calculator.play
         tempPerformance.amount = calculator.amount()
+        tempPerformance.volumeCredits = calculator.volumeCredits()
         return tempPerformance
     }
 

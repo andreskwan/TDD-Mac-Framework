@@ -23,17 +23,5 @@ struct Performance: Codable {
     
      */
     var amount: Int?
-    
-    var volumeCredits: Double {
-        var result = 0.0
-        // add volume credits
-        result += Double(max(audience - 30, 0))
-        
-        // add extra credit for every ten comedy attendees
-        if ("comedy" == play?.type) {
-            let value = floor(Double(audience) / 5)
-            result += value
-        }
-        return result
-    }
+    var volumeCredits: Double?
 }

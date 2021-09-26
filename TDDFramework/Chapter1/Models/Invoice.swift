@@ -26,6 +26,6 @@ struct Invoice: Codable {
         return performances.reduce(0){$0 + ($1.amount ?? 0)}
     }
     var totalVolumeCredits: Double {
-        return performances.reduce(0.0){$0 + $1.volumeCredits}
+        return performances.reduce(0.0){$0 + ($1.volumeCredits ?? 0)}
     }
 }
