@@ -13,6 +13,43 @@
 import XCTest
 @testable import TDDFramework
 
+protocol HTTPSession {
+    func dataTask(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: HTTPSession {}
+
+class MyAlomoFire {
+    func taskDownload(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return URLSessionDataTask()
+    }
+}
+
+class SessionSpy: HTTPSession {
+//    let shared = SessionSpy()
+//    private override init(){
+//    }
+
+    func dataTask(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        //we spy
+        //super.dataTask...
+            return URLSessionDataTask()
+    }
+}
+
+class TaskSpy: URLSessionDataTask {
+    override func resume() {
+        print("resume")
+        super.resume()
+    }
+}
+
+extension MyAlomoFire: HTTPSession {
+    func dataTask(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return taskDownload(with: with, completionHandler: completionHandler)
+    }
+}
+
 final class AsyncNetworkCallsTests: XCTestCase {
     let timeout: TimeInterval = 2
     var expectation: XCTestExpectation!
@@ -23,7 +60,9 @@ final class AsyncNetworkCallsTests: XCTestCase {
     
     func test_noServerResponse() {
         let url = URL(string: "invalidURL")!
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        let session: HTTPSession = URLSession.shared
+        
+        let task: URLSessionDataTask = session.dataTask(with: url) { data, response, error in
             defer { self.expectation.fulfill()
                 print("2) in defer block, must be called at the end of the complition")
             }
@@ -32,33 +71,36 @@ final class AsyncNetworkCallsTests: XCTestCase {
             XCTAssertNotNil(error)
             print("1) must be printed before the defer block is called")
         }
-        .resume()
+        
+        task.resume()
         
         waitForExpectations(timeout: timeout)
     }
     
-//    func test_decodeData() {
-//        let url = getValidUrl()
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            defer { self.expectation.fulfill() }
-//            
-//            XCTAssertNil(error)
-//            
-//            do {
-//                let response = try XCTUnwrap(response as? HTTPURLResponse)
-//                XCTAssertEqual(response.statusCode, 200)
-//                let data = try XCTUnwrap(data)
-//                print(String(decoding: data, as: UTF8.self))
-//                XCTAssertNoThrow(
-//                    try JSONDecoder().decode(Quotes.self, from: data)
-//                )
-//            }
-//            catch { }
-//        }.resume()
-//        
-//        waitForExpectations(timeout: timeout)
-//    }
+    func test_decodeData() {
+        let url = getValidUrl()
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            defer { self.expectation.fulfill() }
+            
+            XCTAssertNil(error)
+            
+            do {
+                let response = try XCTUnwrap(response as? HTTPURLResponse)
+                XCTAssertEqual(response.statusCode, 200)
+                let data = try XCTUnwrap(data)
+                print(String(decoding: data, as: UTF8.self))
+                XCTAssertNoThrow(
+                    try JSONDecoder().decode(Quotes.self, from: data)
+                )
+            }
+            catch { }
+        }.resume()
+        
+        waitForExpectations(timeout: timeout)
+    }
+    
+    
     
     ///this test is not testing for 404 data
     ///it is usefult to validate the errors while decoding data
@@ -131,3 +173,12 @@ final class AsyncNetworkCallsTests: XCTestCase {
         return components.url!
     }
 }
+
+
+
+//URLSession
+
+
+
+
+//extension URLSession:

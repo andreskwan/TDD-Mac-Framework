@@ -10,7 +10,7 @@ import XCTest
 
 class PlaysCostReportTests: XCTestCase {
 
-    
+    //Characterization Test
     func test_statement_prints_sameResutAsTheBook() {
         //given
         let plays = getPlays(printData: true)

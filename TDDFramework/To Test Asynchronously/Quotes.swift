@@ -22,8 +22,8 @@ struct Contents: Codable {
 struct Quote: Codable {
     let length, quote, author: String
     //Decoding the Quote was failing because tags can be an [Strings] or a dictionary!
-    let tags: [String: String]
-//    let tags: [String]
+//    let tags: [String: String]
+    let tags: [String]
     let category, language, date: String
     let permalink: String
     let id: String
