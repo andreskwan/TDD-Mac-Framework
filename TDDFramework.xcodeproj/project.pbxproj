@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D2FC4121271E1EE700CDD2D6 /* PatterDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D2FC4120271E1EE700CDD2D6 /* PatterDiagram.jpeg */; };
+		D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */; };
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D2FC4120271E1EE700CDD2D6 /* PatterDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatterDiagram.jpeg; sourceTree = "<group>"; };
+		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F407B73626D845F30075E620 /* TDDFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDFramework.h; sourceTree = "<group>"; };
 		F407B73726D845F30075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F469B66E27001BC90043EFA9 /* ClassDiagram.png */,
-				D2FC4120271E1EE700CDD2D6 /* PatterDiagram.jpeg */,
+				D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */,
 			);
 			path = Diagrams;
 			sourceTree = "<group>";
@@ -286,8 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */,
 				F469B66F27001BC90043EFA9 /* ClassDiagram.png in Resources */,
-				D2FC4121271E1EE700CDD2D6 /* PatterDiagram.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
