@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
-				F4BB6AA326F79CF2006B2205 /* To Test Asynchronously */,
+				F47B058727302F9700EABB51 /* RW - Test in iOS - Course */,
 				F407B73626D845F30075E620 /* TDDFramework.h */,
 				F407B73726D845F30075E620 /* Info.plist */,
 			);
@@ -106,19 +106,19 @@
 		F407B74026D845F40075E620 /* TDDFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				F407B76326D847C20075E620 /* Asynchronous Tests */,
+				F47B05882730308300EABB51 /* RW - Test in iOS - Course */,
 				F4BB6AA826F7A635006B2205 /* RefactoringBookTest */,
 				F407B74326D845F40075E620 /* Info.plist */,
 			);
 			path = TDDFrameworkTests;
 			sourceTree = "<group>";
 		};
-		F407B76326D847C20075E620 /* Asynchronous Tests */ = {
+		F407B76326D847C20075E620 /* II - Asynchronous Unit Testing */ = {
 			isa = PBXGroup;
 			children = (
 				F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */,
 			);
-			path = "Asynchronous Tests";
+			path = "II - Asynchronous Unit Testing";
 			sourceTree = "<group>";
 		};
 		F469B66426FFBB990043EFA9 /* Helpers */ = {
@@ -138,12 +138,28 @@
 			path = Diagrams;
 			sourceTree = "<group>";
 		};
-		F4BB6AA326F79CF2006B2205 /* To Test Asynchronously */ = {
+		F47B058727302F9700EABB51 /* RW - Test in iOS - Course */ = {
+			isa = PBXGroup;
+			children = (
+				F4BB6AA326F79CF2006B2205 /* II - Asynchronous Unit Testing */,
+			);
+			path = "RW - Test in iOS - Course";
+			sourceTree = "<group>";
+		};
+		F47B05882730308300EABB51 /* RW - Test in iOS - Course */ = {
+			isa = PBXGroup;
+			children = (
+				F407B76326D847C20075E620 /* II - Asynchronous Unit Testing */,
+			);
+			path = "RW - Test in iOS - Course";
+			sourceTree = "<group>";
+		};
+		F4BB6AA326F79CF2006B2205 /* II - Asynchronous Unit Testing */ = {
 			isa = PBXGroup;
 			children = (
 				F407B75D26D846E40075E620 /* Quotes.swift */,
 			);
-			path = "To Test Asynchronously";
+			path = "II - Asynchronous Unit Testing";
 			sourceTree = "<group>";
 		};
 		F4BB6AA426F79D15006B2205 /* RefactoringBook */ = {
