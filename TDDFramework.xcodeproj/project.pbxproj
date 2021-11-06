@@ -12,6 +12,9 @@
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
 		F407B75E26D846E40075E620 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75D26D846E40075E620 /* Quotes.swift */; };
+		F45C80B42736F45A008B8F27 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C80B32736F45A008B8F27 /* Person.swift */; };
+		F45C80BC2736F51C008B8F27 /* RefactoringWorkbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C80BB2736F51C008B8F27 /* RefactoringWorkbookTests.swift */; };
+		F45C80BD2736F51C008B8F27 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
 		F469B66626FFBBB00043EFA9 /* CurrencyFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */; };
 		F469B66826FFBC6D0043EFA9 /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66726FFBC6D0043EFA9 /* Performance.swift */; };
 		F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469B66926FFBCA60043EFA9 /* Play.swift */; };
@@ -32,6 +35,13 @@
 			remoteGlobalIDString = F407B73226D845F30075E620;
 			remoteInfo = TDDFramework;
 		};
+		F45C80BE2736F51C008B8F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F407B72A26D845F30075E620 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F407B73226D845F30075E620;
+			remoteInfo = TDDFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +53,9 @@
 		F407B74326D845F40075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncNetworkCallsTests.swift; sourceTree = "<group>"; };
 		F407B75D26D846E40075E620 /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		F45C80B32736F45A008B8F27 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		F45C80B92736F51C008B8F27 /* RefactoringWorkbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RefactoringWorkbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F45C80BB2736F51C008B8F27 /* RefactoringWorkbookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefactoringWorkbookTests.swift; sourceTree = "<group>"; };
 		F469B66526FFBBB00043EFA9 /* CurrencyFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormats.swift; sourceTree = "<group>"; };
 		F469B66726FFBC6D0043EFA9 /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		F469B66926FFBCA60043EFA9 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
@@ -71,14 +84,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F45C80B62736F51C008B8F27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F45C80BD2736F51C008B8F27 /* TDDFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		F407B72926D845F30075E620 = {
 			isa = PBXGroup;
 			children = (
+				F47B058727302F9700EABB51 /* RW - Test in iOS - Course */,
+				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
+				F45C80B12736F407008B8F27 /* RefactoringWorkbook */,
 				F407B73526D845F30075E620 /* TDDFramework */,
 				F407B74026D845F40075E620 /* TDDFrameworkTests */,
+				F45C80BA2736F51C008B8F27 /* RefactoringWorkbookTests */,
 				F407B73426D845F30075E620 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +113,7 @@
 			children = (
 				F407B73326D845F30075E620 /* TDDFramework.framework */,
 				F407B73C26D845F40075E620 /* TDDFrameworkTests.xctest */,
+				F45C80B92736F51C008B8F27 /* RefactoringWorkbookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,8 +121,6 @@
 		F407B73526D845F30075E620 /* TDDFramework */ = {
 			isa = PBXGroup;
 			children = (
-				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
-				F47B058727302F9700EABB51 /* RW - Test in iOS - Course */,
 				F407B73626D845F30075E620 /* TDDFramework.h */,
 				F407B73726D845F30075E620 /* Info.plist */,
 			);
@@ -119,6 +143,30 @@
 				F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */,
 			);
 			path = "II - Asynchronous Unit Testing";
+			sourceTree = "<group>";
+		};
+		F45C80B12736F407008B8F27 /* RefactoringWorkbook */ = {
+			isa = PBXGroup;
+			children = (
+				F45C80B22736F418008B8F27 /* Ch2 Refactoring Cycle */,
+			);
+			path = RefactoringWorkbook;
+			sourceTree = "<group>";
+		};
+		F45C80B22736F418008B8F27 /* Ch2 Refactoring Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				F45C80B32736F45A008B8F27 /* Person.swift */,
+			);
+			path = "Ch2 Refactoring Cycle";
+			sourceTree = "<group>";
+		};
+		F45C80BA2736F51C008B8F27 /* RefactoringWorkbookTests */ = {
+			isa = PBXGroup;
+			children = (
+				F45C80BB2736F51C008B8F27 /* RefactoringWorkbookTests.swift */,
+			);
+			path = RefactoringWorkbookTests;
 			sourceTree = "<group>";
 		};
 		F469B66426FFBB990043EFA9 /* Helpers */ = {
@@ -168,6 +216,7 @@
 				F4BB6AA526F79D25006B2205 /* Chapter1 */,
 			);
 			name = RefactoringBook;
+			path = TDDFramework;
 			sourceTree = "<group>";
 		};
 		F4BB6AA526F79D25006B2205 /* Chapter1 */ = {
@@ -260,13 +309,31 @@
 			productReference = F407B73C26D845F40075E620 /* TDDFrameworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F45C80B82736F51C008B8F27 /* RefactoringWorkbookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F45C80C02736F51C008B8F27 /* Build configuration list for PBXNativeTarget "RefactoringWorkbookTests" */;
+			buildPhases = (
+				F45C80B52736F51C008B8F27 /* Sources */,
+				F45C80B62736F51C008B8F27 /* Frameworks */,
+				F45C80B72736F51C008B8F27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F45C80BF2736F51C008B8F27 /* PBXTargetDependency */,
+			);
+			name = RefactoringWorkbookTests;
+			productName = RefactoringWorkbookTests;
+			productReference = F45C80B92736F51C008B8F27 /* RefactoringWorkbookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F407B72A26D845F30075E620 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					F407B73226D845F30075E620 = {
@@ -275,6 +342,9 @@
 					};
 					F407B73B26D845F40075E620 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					F45C80B82736F51C008B8F27 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -293,6 +363,7 @@
 			targets = (
 				F407B73226D845F30075E620 /* TDDFramework */,
 				F407B73B26D845F40075E620 /* TDDFrameworkTests */,
+				F45C80B82736F51C008B8F27 /* RefactoringWorkbookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +385,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F45C80B72736F51C008B8F27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -327,6 +405,7 @@
 				F407B75E26D846E40075E620 /* Quotes.swift in Sources */,
 				F4BB6AA726F79D57006B2205 /* RenderingStatement.swift in Sources */,
 				F469B66A26FFBCA60043EFA9 /* Play.swift in Sources */,
+				F45C80B42736F45A008B8F27 /* Person.swift in Sources */,
 				F4EC132026FD1001007AC929 /* StatementData.swift in Sources */,
 				F4EC132326FD103C007AC929 /* Invoice.swift in Sources */,
 			);
@@ -342,6 +421,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F45C80B52736F51C008B8F27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F45C80BC2736F51C008B8F27 /* RefactoringWorkbookTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -349,6 +436,11 @@
 			isa = PBXTargetDependency;
 			target = F407B73226D845F30075E620 /* TDDFramework */;
 			targetProxy = F407B73E26D845F40075E620 /* PBXContainerItemProxy */;
+		};
+		F45C80BF2736F51C008B8F27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F407B73226D845F30075E620 /* TDDFramework */;
+			targetProxy = F45C80BE2736F51C008B8F27 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -559,6 +651,50 @@
 			};
 			name = Release;
 		};
+		F45C80C12736F51C008B8F27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = andreskwan.com.RefactoringWorkbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F45C80C22736F51C008B8F27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = andreskwan.com.RefactoringWorkbookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +721,15 @@
 			buildConfigurations = (
 				F407B74B26D845F40075E620 /* Debug */,
 				F407B74C26D845F40075E620 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F45C80C02736F51C008B8F27 /* Build configuration list for PBXNativeTarget "RefactoringWorkbookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F45C80C12736F51C008B8F27 /* Debug */,
+				F45C80C22736F51C008B8F27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
