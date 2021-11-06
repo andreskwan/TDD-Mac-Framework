@@ -12,8 +12,11 @@ class RefactoringWorkbookTests: XCTestCase {
 
     //characterization test
     func test() {
+        // Old interface
+        //        let person = Person()
+        //        person.name = "Bob Smith"
+        
         let person = Person(name: "Bob Smith")
-//        person.name = "Bob Smith"
         XCTAssertEqual("Bob Smith", person.name)
     }
 
