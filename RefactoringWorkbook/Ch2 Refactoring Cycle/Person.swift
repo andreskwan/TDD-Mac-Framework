@@ -9,5 +9,9 @@ import Foundation
 
 //[Workbook] [ch2] - Encapsulate Variable - Refactoring
 class Person {
-    var name: String!
+    private(set) var name: String
+    
+    init(name:String) {
+        self.name = name 
+    }
 }
