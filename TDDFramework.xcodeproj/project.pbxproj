@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */; };
+		D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271FEC22763FA74007EDAA4 /* MatchTest.swift */; };
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
 		F407B74426D845F40075E620 /* TDDFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = F407B73626D845F30075E620 /* TDDFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B75926D846C10075E620 /* AsyncNetworkCallsTests.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
+		D271FEC22763FA74007EDAA4 /* MatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTest.swift; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F407B73626D845F30075E620 /* TDDFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDDFramework.h; sourceTree = "<group>"; };
 		F407B73726D845F30075E620 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D271FEC02763FA2C007EDAA4 /* Ch3 */ = {
+			isa = PBXGroup;
+			children = (
+				D271FEC22763FA74007EDAA4 /* MatchTest.swift */,
+			);
+			path = Ch3;
+			sourceTree = "<group>";
+		};
+		D271FEC12763FA39007EDAA4 /* Ch3  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Ch3 ";
+			sourceTree = "<group>";
+		};
 		F407B72926D845F30075E620 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F45C80B22736F418008B8F27 /* Ch2 Refactoring Cycle */,
+				D271FEC12763FA39007EDAA4 /* Ch3  */,
 			);
 			path = RefactoringWorkbook;
 			sourceTree = "<group>";
@@ -235,6 +253,7 @@
 		F4BB6AA826F7A635006B2205 /* RefactoringBookTest */ = {
 			isa = PBXGroup;
 			children = (
+				D271FEC02763FA2C007EDAA4 /* Ch3 */,
 				F4BB6AA926F7A645006B2205 /* Chapter1 */,
 			);
 			path = RefactoringBookTest;
@@ -418,6 +437,7 @@
 				F4BB6AAD26F7A9AF006B2205 /* PlaysData.swift in Sources */,
 				F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */,
 				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
+				D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
