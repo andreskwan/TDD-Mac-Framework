@@ -8,6 +8,8 @@
 import XCTest
 @testable import TDDFramework
 
+//#warning(https://memberservices.informit.com/my_account/webedition/9780135425664/html/encapsulatevariable.html)
+
 class PlaysCostReportTests: XCTestCase {
 
     //Characterization Test
