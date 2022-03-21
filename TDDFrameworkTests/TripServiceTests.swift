@@ -8,7 +8,7 @@
 
 import XCTest
 
-public struct Trip {
+public struct Trip: Equatable {
 }
 
 class UserSession {
@@ -69,19 +69,42 @@ class TripService {
     }
 }
 
-class TestableTripService: TripService {
-    override func loggedInUser() -> User? {
-        return nil
-    }
-}
+
 
 class TripServiceTests: XCTestCase {
+    var loggedUser: User?
+    let guest: User? = nil
+    let anyUserWithoutFriends: User? = User(friends: [])
+
     func test_getTripsByUser_throws_when_userIsNotLoggedIn() {
         let sut = TestableTripService()
+        sut.loggedUser = guest
         let user: User? = nil
 
         XCTAssertThrowsError(try sut.getTripsBy(user: user)) { error in
             XCTAssertEqual(error as! UserError, UserError.notLoggedIn)
+        }
+    }
+
+    func test_getTripsByUser_returns_emptyFriends_ifUserIsNil() {
+        let sut = TestableTripService()
+        sut.loggedUser = anyUserWithoutFriends
+        let user: User? = nil
+
+        let noTrips: Array<Trip> = []
+        do {
+            let trips = try sut.getTripsBy(user: user)
+            XCTAssertEqual(trips, noTrips)
+        } catch {
+            XCTFail()
+        }
+    }
+
+    class TestableTripService: TripService {
+        var loggedUser: User?
+
+        override func loggedInUser() -> User? {
+            return loggedUser
         }
     }
 }
