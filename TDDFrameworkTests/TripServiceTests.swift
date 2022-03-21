@@ -32,7 +32,7 @@ enum UserError: Error {
 }
 
 public struct User: Equatable {
-    private var friends: Array<User>
+    var friends: Array<User>
 
     func getFriends() -> Array<User> {
         return friends
@@ -40,27 +40,48 @@ public struct User: Equatable {
 }
 
 class TripService {
-    public func getTripsBy(user: User) throws -> Array<Trip> {
+    public func getTripsBy(user: User?) throws -> Array<Trip> {
         var tripList = Array<Trip>()
-        let loggedUser = UserSession.getInstance().getLoggerUser()
+        let loggedUser = loggedInUser()
         var isFriend = false
-        if (loggedUser != nil) {
-            for friend in user.getFriends() {
-                if friend == loggedUser {
-                    isFriend = true
-                    break
+
+            if (loggedUser != nil) {
+                if let user = user {
+                    for friend in user.getFriends() {
+                        if friend == loggedUser {
+                            isFriend = true
+                            break
+                        }
+                    }
+                    if isFriend {
+                        tripList = TripDAO.findTripsByUser(user)
+                    }
+                    return tripList
                 }
+                return []
+            } else {
+                throw UserError.notLoggedIn
             }
-            if isFriend {
-                tripList = TripDAO.findTripsByUser(user)
-            }
-            return tripList
-        } else {
-            throw UserError.notLoggedIn
-        }
+    }
+
+    func loggedInUser() -> User? {
+        return UserSession.getInstance().getLoggerUser()
+    }
+}
+
+class TestableTripService: TripService {
+    override func loggedInUser() -> User? {
+        return nil
     }
 }
 
 class TripServiceTests: XCTestCase {
+    func test_getTripsByUser_throws_when_userIsNotLoggedIn() {
+        let sut = TestableTripService()
+        let user: User? = nil
 
+        XCTAssertThrowsError(try sut.getTripsBy(user: user)) { error in
+            XCTAssertEqual(error as! UserError, UserError.notLoggedIn)
+        }
+    }
 }
