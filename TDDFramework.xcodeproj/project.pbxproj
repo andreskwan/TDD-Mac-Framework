@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A97EF4486E194C2746243EE /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E188243ECB16405F8AFF /* TripServiceTests.swift */; };
 		D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */; };
 		D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271FEC22763FA74007EDAA4 /* MatchTest.swift */; };
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A97E188243ECB16405F8AFF /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
 		D271FEC22763FA74007EDAA4 /* MatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTest.swift; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				F47B05882730308300EABB51 /* RW - Test in iOS - Course */,
 				F4BB6AA826F7A635006B2205 /* RefactoringBookTest */,
 				F407B74326D845F40075E620 /* Info.plist */,
+				1A97E188243ECB16405F8AFF /* TripServiceTests.swift */,
 			);
 			path = TDDFrameworkTests;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */,
 				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
 				D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */,
+				1A97EF4486E194C2746243EE /* TripServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
