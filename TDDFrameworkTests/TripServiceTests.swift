@@ -8,8 +8,38 @@
 
 import XCTest
 
+public struct Trip {
+}
+
+class UserSession {
+    class func getInstance() -> UserSession {
+        return UserSession()
+    }
+
+    func getLoggerUser() -> User {
+        fatalError("getLoggerUser(_:) has not been implemented")
+    }
+}
+
+class TripDAO {
+    class func findTripsByUser(_ user: User) -> Array<Trip> {
+        fatalError("findTripsByUser(_:) has not been implemented")
+    }
+}
+
+class UserNotLoggedInException: Error {
+}
+
+public struct User {
+    private var friends: Array<User>
+
+    func getFriends() -> Array<User> {
+        return friends
+    }
+}
+
 class TripService {
-    public func getTripsBy(user: User) throws -> Arrat<Trips> {
+    public func getTripsBy(user: User) throws -> Array<Trip> {
         var tripList = Array<Trip>()
         let loggedUser = UserSession.getInstance().getLoggerUser()
         let isFriend = false
