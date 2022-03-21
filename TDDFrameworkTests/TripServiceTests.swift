@@ -16,7 +16,7 @@ class UserSession {
         return UserSession()
     }
 
-    func getLoggerUser() -> User {
+    func getLoggerUser() -> User? {
         fatalError("getLoggerUser(_:) has not been implemented")
     }
 }
@@ -27,10 +27,11 @@ class TripDAO {
     }
 }
 
-class UserNotLoggedInException: Error {
+enum UserError: Error {
+    case notLoggedIn
 }
 
-public struct User {
+public struct User: Equatable {
     private var friends: Array<User>
 
     func getFriends() -> Array<User> {
@@ -42,10 +43,10 @@ class TripService {
     public func getTripsBy(user: User) throws -> Array<Trip> {
         var tripList = Array<Trip>()
         let loggedUser = UserSession.getInstance().getLoggerUser()
-        let isFriend = false
+        var isFriend = false
         if (loggedUser != nil) {
-            for user in user.getFriends() {
-                if friend.equals(loggedUser) {
+            for friend in user.getFriends() {
+                if friend == loggedUser {
                     isFriend = true
                     break
                 }
@@ -55,7 +56,7 @@ class TripService {
             }
             return tripList
         } else {
-            throw UserNotLoggedInException()
+            throw UserError.notLoggedIn
         }
     }
 }
