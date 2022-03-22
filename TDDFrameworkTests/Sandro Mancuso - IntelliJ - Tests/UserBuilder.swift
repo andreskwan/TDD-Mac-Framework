@@ -30,8 +30,16 @@ class UserBuilder {
 
     func build() -> User {
         var user = User()
-        friends.map { friend in user.addFriend(friend) }
-        trips.map { trip in user.addTrip(trip) }
+        addFriendsTo(&user)
+        addTripsTo(&user)
         return user
+    }
+
+    private func addTripsTo(_ user: inout User) -> [()] {
+        trips.map { trip in user.addTrip(trip) }
+    }
+
+    private func addFriendsTo(_ user: inout User) -> [()] {
+        friends.map { friend in user.addFriend(friend) }
     }
 }
