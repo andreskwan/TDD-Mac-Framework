@@ -74,14 +74,15 @@ class TripService {
 class TripServiceTests: XCTestCase {
     var loggedUser: User?
     let guest: User? = nil
-    let anyUserWithoutFriends: User? = User(friends: [])
+    let anyUser: User? = User(friends: [])
+    let friend: User? = User(friends: [])
+    let registeredUser: User? = User(friends: [])
 
-    func test_getTripsByUser_throws_when_userIsNotLoggedIn() {
+    func test_getTripsByUser_throws_when_UserNotLoggedIn() {
         let sut = TestableTripService()
         sut.loggedUser = guest
-        let user: User? = nil
 
-        XCTAssertThrowsError(try sut.getTripsBy(user: user)) { error in
+        XCTAssertThrowsError(try sut.getTripsBy(user: anyUser)) { error in
             XCTAssertEqual(error as! UserError, UserError.notLoggedIn)
         }
     }
