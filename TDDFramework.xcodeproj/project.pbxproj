@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A97EF4486E194C2746243EE /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E188243ECB16405F8AFF /* TripServiceTests.swift */; };
+		1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */; };
+		1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E8815DEB305EAD508D78 /* TripDAO.swift */; };
+		1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */; };
+		1A97EAE07285847A761F9D06 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E3E31614FDD65E186A90 /* Trip.swift */; };
+		1A97EB65F04700280D4107CB /* TripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E15BDA5C80961D565363 /* TripService.swift */; };
+		1A97EE406C301E93CA6AF19B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC857098296F2F275C17 /* User.swift */; };
 		D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */; };
 		D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271FEC22763FA74007EDAA4 /* MatchTest.swift */; };
 		F407B73D26D845F40075E620 /* TDDFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F407B73326D845F30075E620 /* TDDFramework.framework */; };
@@ -47,7 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A97E188243ECB16405F8AFF /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
+		1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		1A97E15BDA5C80961D565363 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripService.swift; sourceTree = "<group>"; };
+		1A97E3E31614FDD65E186A90 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = Model/Trip.swift; sourceTree = "<group>"; };
+		1A97E8815DEB305EAD508D78 /* TripDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDAO.swift; sourceTree = "<group>"; };
+		1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
+		1A97EC857098296F2F275C17 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
 		D271FEC22763FA74007EDAA4 /* MatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTest.swift; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +109,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A97E25DE04FA20CEEECA6B8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */,
+				1A97EC857098296F2F275C17 /* User.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		1A97E3857411B4CBD9E66974 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				1A97E3E31614FDD65E186A90 /* Trip.swift */,
+				1A97E15BDA5C80961D565363 /* TripService.swift */,
+				1A97E8815DEB305EAD508D78 /* TripDAO.swift */,
+			);
+			name = Trips;
+			sourceTree = "<group>";
+		};
+		1A97E75DB80C46BE0DB1F502 /* Sandro Mancuso - IntelliJ */ = {
+			isa = PBXGroup;
+			children = (
+				1A97E3857411B4CBD9E66974 /* Trips */,
+				1A97E25DE04FA20CEEECA6B8 /* User */,
+			);
+			path = "Sandro Mancuso - IntelliJ";
+			sourceTree = "<group>";
+		};
+		1A97EEE317FFB50DFCEC9F3B /* Sandro Mancuso - IntelliJ - Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */,
+			);
+			path = "Sandro Mancuso - IntelliJ - Tests";
+			sourceTree = "<group>";
+		};
 		D271FEC02763FA2C007EDAA4 /* Ch3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +170,7 @@
 				F407B74026D845F40075E620 /* TDDFrameworkTests */,
 				F45C80BA2736F51C008B8F27 /* RefactoringWorkbookTests */,
 				F407B73426D845F30075E620 /* Products */,
+				1A97E75DB80C46BE0DB1F502 /* Sandro Mancuso - IntelliJ */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +199,7 @@
 				F47B05882730308300EABB51 /* RW - Test in iOS - Course */,
 				F4BB6AA826F7A635006B2205 /* RefactoringBookTest */,
 				F407B74326D845F40075E620 /* Info.plist */,
-				1A97E188243ECB16405F8AFF /* TripServiceTests.swift */,
+				1A97EEE317FFB50DFCEC9F3B /* Sandro Mancuso - IntelliJ - Tests */,
 			);
 			path = TDDFrameworkTests;
 			sourceTree = "<group>";
@@ -430,6 +477,11 @@
 				F45C80B42736F45A008B8F27 /* Person.swift in Sources */,
 				F4EC132026FD1001007AC929 /* StatementData.swift in Sources */,
 				F4EC132326FD103C007AC929 /* Invoice.swift in Sources */,
+				1A97EAE07285847A761F9D06 /* Trip.swift in Sources */,
+				1A97EB65F04700280D4107CB /* TripService.swift in Sources */,
+				1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */,
+				1A97EE406C301E93CA6AF19B /* User.swift in Sources */,
+				1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +493,7 @@
 				F4BB6AAB26F7A675006B2205 /* PlaysCostReportTests.swift in Sources */,
 				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
 				D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */,
-				1A97EF4486E194C2746243EE /* TripServiceTests.swift in Sources */,
+				1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
