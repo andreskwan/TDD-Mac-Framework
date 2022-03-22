@@ -12,10 +12,13 @@ import XCTest
 class TripServiceTests: XCTestCase {
     private var loggedUser: User?
     private let guest: User? = nil
-    private let anyUser: User? = User(friends: [])
-    private lazy var friend: User? = User(friends: [loggedUser!])
-    private let registeredUser: User? = User(friends: [])
-    private let stranger = User(friends: [])
+    private let anyUser: User? = User()
+    private lazy var friend: User? = User()
+    private let registeredUser: User? = User()
+    private let stranger = User()
+
+    private let london = Trip()
+    private let barcelona = Trip()
 
     func test_getTripsByUser_validates_theLoggedInUser_throws_when_UserNotLoggedIn() {
         let sut = TestableTripService()
@@ -53,11 +56,31 @@ class TripServiceTests: XCTestCase {
         }
     }
 
+    func test_getTripsByUser_returns_trips_when_usersAreFriends() {
+        let sut = TestableTripService()
+        sut.loggedUser = registeredUser
+        friend?.addFriend(sut.loggedUser!)
+        friend?.addTrip(london)
+        friend?.addTrip(barcelona)
+        let expectedTrips = [london, barcelona]
+
+        do {
+            let trips = try sut.getTripsBy(user: friend)
+            XCTAssertEqual(trips, expectedTrips)
+        } catch {
+            XCTFail()
+        }
+    }
+
     class TestableTripService: TripService {
         var loggedUser: User?
 
         override func loggedInUser() -> User? {
             return loggedUser
+        }
+
+        override func tripsBy(user: User) -> [Trip] {
+            user.getTrips()
         }
     }
 }

@@ -9,9 +9,22 @@ enum UserError: Error {
 }
 
 public struct User: Equatable {
-    var friends: Array<User>
+    private var friends: Array<User> = []
+    private var trips: Array<Trip> = []
 
     func getFriends() -> Array<User> {
         return friends
+    }
+
+    mutating func addFriend(_ user: User) {
+        friends.append(user)
+    }
+
+    mutating func addTrip(_ trip: Trip) {
+        trips.append(trip)
+    }
+
+    func getTrips() -> Array<Trip> {
+        return trips
     }
 }

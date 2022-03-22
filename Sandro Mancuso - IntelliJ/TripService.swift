@@ -19,7 +19,7 @@ class TripService {
                     }
                 }
                 if isFriend {
-                    tripList = TripDAO.findTripsByUser(user)
+                    tripList = tripsBy(user: user)
                 }
                 return tripList
             }
@@ -28,6 +28,10 @@ class TripService {
             throw UserError.notLoggedIn
         }
 
+    }
+
+    public func tripsBy(user: User) -> [Trip] {
+        TripDAO.findTripsByUser(user)
     }
 
     func loggedInUser() -> User? {
