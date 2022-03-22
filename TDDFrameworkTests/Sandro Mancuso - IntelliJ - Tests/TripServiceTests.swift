@@ -26,7 +26,7 @@ class TripServiceTests: XCTestCase {
         }
     }
 
-    func test_getTripsByUser_returns_emptyTrips_ifNoUserProvided() {
+    func test_getTripsByUser_returns_noTrips_ifNoUserProvided() {
         let sut = TestableTripService()
         sut.loggedUser = registeredUser
         let noUser: User? = nil
