@@ -11,6 +11,7 @@ enum UserError: Error {
 public struct User: Equatable {
     private var friends: Array<User> = []
     private var trips: Array<Trip> = []
+    let uuid: UUID = UUID()
 
     func getFriends() -> Array<User> {
         return friends

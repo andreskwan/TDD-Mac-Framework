@@ -10,6 +10,7 @@
 		1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */; };
 		1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E8815DEB305EAD508D78 /* TripDAO.swift */; };
 		1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */; };
+		1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */; };
 		1A97EAE07285847A761F9D06 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E3E31614FDD65E186A90 /* Trip.swift */; };
 		1A97EB65F04700280D4107CB /* TripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E15BDA5C80961D565363 /* TripService.swift */; };
 		1A97EE406C301E93CA6AF19B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC857098296F2F275C17 /* User.swift */; };
@@ -56,6 +57,7 @@
 		1A97E15BDA5C80961D565363 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripService.swift; sourceTree = "<group>"; };
 		1A97E3E31614FDD65E186A90 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = Model/Trip.swift; sourceTree = "<group>"; };
 		1A97E8815DEB305EAD508D78 /* TripDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDAO.swift; sourceTree = "<group>"; };
+		1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
 		1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
 		1A97EC857098296F2F275C17 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */,
+				1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */,
 			);
 			path = "Sandro Mancuso - IntelliJ - Tests";
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				F407B75A26D846C10075E620 /* AsyncNetworkCallsTests.swift in Sources */,
 				D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */,
 				1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */,
+				1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

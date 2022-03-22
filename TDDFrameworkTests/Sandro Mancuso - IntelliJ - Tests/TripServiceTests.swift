@@ -10,12 +10,11 @@ import XCTest
 @testable import TDDFramework
 
 class TripServiceTests: XCTestCase {
-    private var loggedUser: User?
+
     private let guest: User? = nil
     private let anyUser: User? = User()
-    private lazy var friend: User? = User()
+    private let anotherUser: User? = User()
     private let registeredUser: User? = User()
-    private let stranger = User()
 
     private let london = Trip()
     private let barcelona = Trip()
@@ -49,6 +48,11 @@ class TripServiceTests: XCTestCase {
     }
 
     func test_getTripsByUser_returns_noTrips_when_usersAreNotFriends() {
+        let stranger = UserBuilder.aUser()
+                .friendsWith(anotherUser!)
+                .withTripsTo(london, barcelona)
+                .build()
+
         let noTrips: Array<Trip> = []
         do {
             let trips = try sut.getTripsBy(user: stranger)
@@ -59,9 +63,11 @@ class TripServiceTests: XCTestCase {
     }
 
     func test_getTripsByUser_returns_trips_when_usersAreFriends() {
-        friend?.addFriend(sut.loggedUser!)
-        friend?.addTrip(london)
-        friend?.addTrip(barcelona)
+        let friend = UserBuilder.aUser()
+                .friendsWith(sut.loggedUser!)
+                .withTripsTo(london, barcelona)
+                .build()
+
         let expectedTrips = [london, barcelona]
 
         do {
