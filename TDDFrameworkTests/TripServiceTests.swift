@@ -87,14 +87,14 @@ class TripServiceTests: XCTestCase {
         }
     }
 
-    func test_getTripsByUser_returns_emptyFriends_ifUserIsNil() {
+    func test_getTripsByUser_returns_emptyTrips_ifNoUserProvided() {
         let sut = TestableTripService()
-        sut.loggedUser = anyUserWithoutFriends
-        let user: User? = nil
+        sut.loggedUser = registeredUser
+        let noUser: User? = nil
 
         let noTrips: Array<Trip> = []
         do {
-            let trips = try sut.getTripsBy(user: user)
+            let trips = try sut.getTripsBy(user: noUser)
             XCTAssertEqual(trips, noTrips)
         } catch {
             XCTFail()
