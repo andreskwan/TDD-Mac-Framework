@@ -20,8 +20,15 @@ class TripServiceTests: XCTestCase {
     private let london = Trip()
     private let barcelona = Trip()
 
+    private var sut: TestableTripService!
+
+    override func setUp() {
+        super.setUp()
+        sut = TestableTripService()
+        sut.loggedUser = registeredUser
+    }
+
     func test_getTripsByUser_validates_theLoggedInUser_throws_when_UserNotLoggedIn() {
-        let sut = TestableTripService()
         sut.loggedUser = guest
 
         XCTAssertThrowsError(try sut.getTripsBy(user: anyUser)) { error in
@@ -30,8 +37,6 @@ class TripServiceTests: XCTestCase {
     }
 
     func test_getTripsByUser_returns_noTrips_ifNoUserProvided() {
-        let sut = TestableTripService()
-        sut.loggedUser = registeredUser
         let noUser: User? = nil
 
         let noTrips: Array<Trip> = []
@@ -44,9 +49,6 @@ class TripServiceTests: XCTestCase {
     }
 
     func test_getTripsByUser_returns_noTrips_when_usersAreNotFriends() {
-        let sut = TestableTripService()
-        sut.loggedUser = registeredUser
-
         let noTrips: Array<Trip> = []
         do {
             let trips = try sut.getTripsBy(user: stranger)
@@ -57,8 +59,6 @@ class TripServiceTests: XCTestCase {
     }
 
     func test_getTripsByUser_returns_trips_when_usersAreFriends() {
-        let sut = TestableTripService()
-        sut.loggedUser = registeredUser
         friend?.addFriend(sut.loggedUser!)
         friend?.addTrip(london)
         friend?.addTrip(barcelona)
@@ -76,7 +76,7 @@ class TripServiceTests: XCTestCase {
         var loggedUser: User?
 
         override func loggedInUser() -> User? {
-            return loggedUser
+            loggedUser
         }
 
         override func tripsBy(user: User) -> [Trip] {
