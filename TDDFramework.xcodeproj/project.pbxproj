@@ -13,6 +13,7 @@
 		1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */; };
 		1A97EAE07285847A761F9D06 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E3E31614FDD65E186A90 /* Trip.swift */; };
 		1A97EB65F04700280D4107CB /* TripService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E15BDA5C80961D565363 /* TripService.swift */; };
+		1A97EC68567E4B7694829F95 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EDD83F5AD4B84AF65A94 /* UserTests.swift */; };
 		1A97EE406C301E93CA6AF19B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC857098296F2F275C17 /* User.swift */; };
 		D20D9963271E235200E2BFCC /* PatternDiagram.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */; };
 		D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271FEC22763FA74007EDAA4 /* MatchTest.swift */; };
@@ -60,6 +61,7 @@
 		1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
 		1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
 		1A97EC857098296F2F275C17 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1A97EDD83F5AD4B84AF65A94 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
 		D271FEC22763FA74007EDAA4 /* MatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTest.swift; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 			children = (
 				1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */,
 				1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */,
+				1A97EDD83F5AD4B84AF65A94 /* UserTests.swift */,
 			);
 			path = "Sandro Mancuso - IntelliJ - Tests";
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				D271FEC32763FA74007EDAA4 /* MatchTest.swift in Sources */,
 				1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */,
 				1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */,
+				1A97EC68567E4B7694829F95 /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

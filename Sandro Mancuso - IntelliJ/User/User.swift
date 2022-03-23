@@ -28,4 +28,8 @@ public struct User: Equatable {
     func getTrips() -> Array<Trip> {
         return trips
     }
+
+    public func isFriend(with anotherUser: User) -> Bool {
+        (friends.first(where: { $0 == anotherUser }) != nil)
+    }
 }
