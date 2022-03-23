@@ -6,23 +6,14 @@ import Foundation
 
 class TripService {
     public func getTripsBy(user: User?) throws -> Array<Trip> {
-        var tripList = Array<Trip>()
-        let loggedUser = loggedInUser()
-        var isFriend = false
 
-        if let loggedUser = loggedUser {
-            if let user = user {
-                isFriend = user.isFriend(with: loggedUser)
-                if isFriend {
-                    tripList = tripsBy(user: user)
-                }
-                return tripList
-            }
-            return []
-        } else {
+        guard let loggedInUser = loggedInUser() else {
             throw UserError.notLoggedIn
         }
-
+        guard let user = user,
+              user.isFriend(with: loggedInUser)
+                else { return [] }
+        return tripsBy(user: user)
     }
 
     public func tripsBy(user: User) -> [Trip] {
