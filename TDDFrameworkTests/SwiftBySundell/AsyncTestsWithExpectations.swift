@@ -8,6 +8,10 @@
 
 import XCTest
 
+///
+/// warning: https://www.swiftbysundell.com/articles/unit-testing-asynchronous-swift-code/
+/// traditional way of testing asynchronous code.
+///
 class ImageScaler {
     func scale(_ images: [UIImage], _ closure: ([UIImage]) -> ()) {
         //the scaling process should take time
