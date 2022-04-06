@@ -13,18 +13,9 @@
 import XCTest
 @testable import TDDFramework
 
-protocol HTTPSession {
-    func dataTask(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension URLSession: HTTPSession {}
-
-class MyAlomoFire {
-    func taskDownload(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        return URLSessionDataTask()
-    }
-}
-
+///
+/// Do not mock classes that you don't
+///
 class SessionSpy: HTTPSession {
 //    let shared = SessionSpy()
 //    private override init(){
@@ -44,12 +35,10 @@ class TaskSpy: URLSessionDataTask {
     }
 }
 
-extension MyAlomoFire: HTTPSession {
-    func dataTask(with: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        return taskDownload(with: with, completionHandler: completionHandler)
-    }
-}
 
+///
+/// These tests are End to End
+///
 final class AsyncNetworkCallsTests: XCTestCase {
     let timeout: TimeInterval = 2
     var expectation: XCTestExpectation!
@@ -143,7 +132,7 @@ final class AsyncNetworkCallsTests: XCTestCase {
         
         waitForExpectations(timeout: timeout)
     }
-    
+
 //    commented because the setUp() is setting the expectation for this test
 //    but that expectation is not being waited
 //    func test_apiClient() {
@@ -173,12 +162,3 @@ final class AsyncNetworkCallsTests: XCTestCase {
         return components.url!
     }
 }
-
-
-
-//URLSession
-
-
-
-
-//extension URLSession:

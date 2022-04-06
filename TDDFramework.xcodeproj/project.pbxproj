@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A97E2958B9FC094DB1DC65E /* MyAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EEBE0249FC53C3D7D8DF /* MyAlamofire.swift */; };
+		1A97E39BB62FBC134B8649AF /* HTTPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E16C23F0EC7781C2F449 /* HTTPSession.swift */; };
 		1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */; };
 		1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E8815DEB305EAD508D78 /* TripDAO.swift */; };
 		1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */; };
@@ -56,12 +58,14 @@
 /* Begin PBXFileReference section */
 		1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		1A97E15BDA5C80961D565363 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripService.swift; sourceTree = "<group>"; };
+		1A97E16C23F0EC7781C2F449 /* HTTPSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPSession.swift; sourceTree = "<group>"; };
 		1A97E3E31614FDD65E186A90 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = Model/Trip.swift; sourceTree = "<group>"; };
 		1A97E8815DEB305EAD508D78 /* TripDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDAO.swift; sourceTree = "<group>"; };
 		1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
 		1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
 		1A97EC857098296F2F275C17 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1A97EDD83F5AD4B84AF65A94 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		1A97EEBE0249FC53C3D7D8DF /* MyAlamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlamofire.swift; sourceTree = "<group>"; };
 		D20D9962271E235200E2BFCC /* PatternDiagram.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PatternDiagram.jpeg; sourceTree = "<group>"; };
 		D271FEC22763FA74007EDAA4 /* MatchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTest.swift; sourceTree = "<group>"; };
 		F407B73326D845F30075E620 /* TDDFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TDDFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +173,7 @@
 		F407B72926D845F30075E620 = {
 			isa = PBXGroup;
 			children = (
+				1A97E75DB80C46BE0DB1F502 /* Sandro Mancuso - IntelliJ */,
 				F47B058727302F9700EABB51 /* RW - Test in iOS - Course */,
 				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
 				F45C80B12736F407008B8F27 /* RefactoringWorkbook */,
@@ -176,7 +181,6 @@
 				F407B74026D845F40075E620 /* TDDFrameworkTests */,
 				F45C80BA2736F51C008B8F27 /* RefactoringWorkbookTests */,
 				F407B73426D845F30075E620 /* Products */,
-				1A97E75DB80C46BE0DB1F502 /* Sandro Mancuso - IntelliJ */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				F407B75D26D846E40075E620 /* Quotes.swift */,
+				1A97E16C23F0EC7781C2F449 /* HTTPSession.swift */,
+				1A97EEBE0249FC53C3D7D8DF /* MyAlamofire.swift */,
 			);
 			path = "II - Asynchronous Unit Testing";
 			sourceTree = "<group>";
@@ -488,6 +494,8 @@
 				1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */,
 				1A97EE406C301E93CA6AF19B /* User.swift in Sources */,
 				1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */,
+				1A97E39BB62FBC134B8649AF /* HTTPSession.swift in Sources */,
+				1A97E2958B9FC094DB1DC65E /* MyAlamofire.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
