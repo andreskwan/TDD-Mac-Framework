@@ -10,6 +10,7 @@
 		1A97E2958B9FC094DB1DC65E /* MyAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EEBE0249FC53C3D7D8DF /* MyAlamofire.swift */; };
 		1A97E39BB62FBC134B8649AF /* HTTPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E16C23F0EC7781C2F449 /* HTTPSession.swift */; };
 		1A97E43FBF033CA44C4247EC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E0C289B38E5C1CBF2AD1 /* UserSession.swift */; };
+		1A97E446587D6763AD2984DA /* FromAsyncToSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E81797EC35B2DE39E1F5 /* FromAsyncToSyncTests.swift */; };
 		1A97E5B60FB29DB11FAA5401 /* TripDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97E8815DEB305EAD508D78 /* TripDAO.swift */; };
 		1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */; };
 		1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */; };
@@ -60,6 +61,7 @@
 		1A97E15BDA5C80961D565363 /* TripService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripService.swift; sourceTree = "<group>"; };
 		1A97E16C23F0EC7781C2F449 /* HTTPSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPSession.swift; sourceTree = "<group>"; };
 		1A97E3E31614FDD65E186A90 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = Model/Trip.swift; sourceTree = "<group>"; };
+		1A97E81797EC35B2DE39E1F5 /* FromAsyncToSyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromAsyncToSyncTests.swift; sourceTree = "<group>"; };
 		1A97E8815DEB305EAD508D78 /* TripDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDAO.swift; sourceTree = "<group>"; };
 		1A97EA6B9B6F93ACAD0B4182 /* UserBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBuilder.swift; sourceTree = "<group>"; };
 		1A97EC5D4BE05F5441B00785 /* TripServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripServiceTests.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		1A97E34485F87AF864639765 /* SwiftBySundell */ = {
+			isa = PBXGroup;
+			children = (
+				1A97E81797EC35B2DE39E1F5 /* FromAsyncToSyncTests.swift */,
+			);
+			path = SwiftBySundell;
+			sourceTree = "<group>";
+		};
 		1A97E3857411B4CBD9E66974 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,13 @@
 				1A97E25DE04FA20CEEECA6B8 /* User */,
 			);
 			path = "Sandro Mancuso - IntelliJ";
+			sourceTree = "<group>";
+		};
+		1A97E9E5CE40648BACCDC2A2 /* SwiftBySundell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftBySundell;
 			sourceTree = "<group>";
 		};
 		1A97EEE317FFB50DFCEC9F3B /* Sandro Mancuso - IntelliJ - Tests */ = {
@@ -173,6 +190,7 @@
 		F407B72926D845F30075E620 = {
 			isa = PBXGroup;
 			children = (
+				1A97E9E5CE40648BACCDC2A2 /* SwiftBySundell */,
 				1A97E75DB80C46BE0DB1F502 /* Sandro Mancuso - IntelliJ */,
 				F47B058727302F9700EABB51 /* RW - Test in iOS - Course */,
 				F4BB6AA426F79D15006B2205 /* RefactoringBook */,
@@ -210,6 +228,7 @@
 				F4BB6AA826F7A635006B2205 /* RefactoringBookTest */,
 				F407B74326D845F40075E620 /* Info.plist */,
 				1A97EEE317FFB50DFCEC9F3B /* Sandro Mancuso - IntelliJ - Tests */,
+				1A97E34485F87AF864639765 /* SwiftBySundell */,
 			);
 			path = TDDFrameworkTests;
 			sourceTree = "<group>";
@@ -510,6 +529,7 @@
 				1A97E7673AEF9AFE2312CA85 /* TripServiceTests.swift in Sources */,
 				1A97E933C51F655152D86F7F /* UserBuilder.swift in Sources */,
 				1A97EC68567E4B7694829F95 /* UserTests.swift in Sources */,
+				1A97E446587D6763AD2984DA /* FromAsyncToSyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
