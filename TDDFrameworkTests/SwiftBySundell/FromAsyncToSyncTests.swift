@@ -10,7 +10,9 @@ import XCTest
 
 class ImageScaler {
     func scale(_ images: [UIImage], _ closure: ([UIImage]) -> ()) {
-
+        //the scaling process should take time
+        //here is returning immediately
+        closure(images)
     }
 }
 
@@ -22,9 +24,17 @@ class ImageScalerTests: XCTestCase {
         let scaler = ImageScaler()
         let originalImages = loadImages()
 
-        scaler.scale(originalImages) { scaledImages in
-            XCTAssertEqual(scaledImages.count, originalImages.count)
+        // Create an expectation
+        let expectation = self.expectation(description: "Scaling")
+        var scaledImages: [UIImage]?
+
+        scaler.scale(originalImages) {
+            scaledImages = $0
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 5)
+
+        XCTAssertEqual(scaledImages?.count, originalImages.count)
     }
 
     /// MARK: Helpers
